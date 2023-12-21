@@ -33,22 +33,22 @@
   src: url('../fonts/Fontspring-DEMO-quincycf-black.otf');
 }
 :root {
-  --MAIN-FONT: NeueMontreal;
-  --ICON-FONT: Fontspring-DEMO-quincycf;
+  --main-font: NeueMontreal;
+  --icon-font: Fontspring-DEMO-quincycf;
 
-  --PRIMARY-DARK-COLOR: #6d8434;
-  --SECONDARY-DARK-COLOR: #586f1f;
-  --THIRD-DARK-COLOR: #010101;
-  --BACKGROWND-COLOR: #e8e8e2;
-  --ICON-COLOR: #fdc152;
-  --LIGHT-COLOR: #fafafa;
+  --primary-dark-color: #6d8434;
+  --secondary-dark-color: #586f1f;
+  --third-dark-color: #010101;
+  --backgrownd-color: #e8e8e2;
+  --icon-color: #fdc152;
+  --light-color: #fafafa;
 
-  --TRANSITION-CUB: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-cub: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
-  font-family: var(--MAIN-FONT);
-  color: var(--THIRD-DARK-COLOR);
-  background-color: var(--BACKGROWND-COLOR);
+  font-family: var(--main-font);
+  color: var(--third-dark-color);
+  background-color: var(--backgrownd-color);
 }
 
 .container {
