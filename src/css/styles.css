@@ -16,16 +16,58 @@
 @import url('./shopping-cart.css');
 @import url('./modal.css');
 
+@font-face {
+  font-family: NeueMontreal;
+  src: url('../fonts/NeueMontreal-Regular.otf');
+  font-weight: regular;
+  font-style: normal;
+}
+@font-face {
+  font-family: NeueMontreal;
+  src: url('../fonts/NeueMontreal-Medium.otf');
+  font-weight: medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: Fontspring-DEMO-quincycf;
+  src: url('../fonts/Fontspring-DEMO-quincycf-black.otf');
+}
 :root {
-  --MAIN-FONT: ;
+  --MAIN-FONT: NeueMontreal;
+  --ICON-FONT: Fontspring-DEMO-quincycf;
 
-  --PRIMARY-DARK-COLOR: #6D8434;
-  --SECONDARY-DARK-COLOR: #586F1F;
-  --THIRD-DARK-COLOR: #020202;
-  --BACKGROWND-COLOR: #E8E8E2;
-  --ICON-COLOR: #FDC152;
-  --LIGHT-COLOR: #FAFAFA;
+  --PRIMARY-DARK-COLOR: #6d8434;
+  --SECONDARY-DARK-COLOR: #586f1f;
+  --THIRD-DARK-COLOR: #010101;
+  --BACKGROWND-COLOR: #e8e8e2;
+  --ICON-COLOR: #fdc152;
+  --LIGHT-COLOR: #fafafa;
 
   --TRANSITION-CUB: cubic-bezier(0.4, 0, 0.2, 1);
+}
+body {
+  font-family: var(--MAIN-FONT);
+  color: var(--THIRD-DARK-COLOR);
+  background-color: var(--BACKGROWND-COLOR);
+}
 
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (min-width: 376px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 100px;
+  }
 }
