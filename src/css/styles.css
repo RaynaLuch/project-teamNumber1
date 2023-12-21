@@ -5,21 +5,27 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
 @import url('./header.css');
+@import url('./hero.css');
+@import url('./filters.css');
+@import url('./carts.css');
+@import url('./pagination.css');
+@import url('./popular.css');
+@import url('./discount.css');
+@import url('./footer.css');
+@import url('./shopping-cart.css');
+@import url('./modal.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  --MAIN-FONT: ;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  --PRIMARY-DARK-COLOR: #6D8434;
+  --SECONDARY-DARK-COLOR: #586F1F;
+  --THIRD-DARK-COLOR: #020202;
+  --BACKGROWND-COLOR: #E8E8E2;
+  --ICON-COLOR: #FDC152;
+  --LIGHT-COLOR: #FAFAFA;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --TRANSITION-CUB: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
