@@ -14,13 +14,63 @@
     />
     
     <script type="module" crossorigin src="/project-teamNumber1/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/project-teamNumber1/assets/index-6ca13e9d.css">
+    <link rel="modulepreload" crossorigin href="/project-teamNumber1/assets/vendor-b3a2ce1a.js">
+    <link rel="stylesheet" href="/project-teamNumber1/assets/index-810ad4df.css">
   </head>
   <body>
     
 
     
+    <section class="carts">
+  <div class="container">
+    <h2 class="carts-visually-hidden">Choose products</h2>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filters</title>
+    <link rel="stylesheet" href="../css/filters.css" />
+  </head>
+  <body>
+    <div>
+      <p>Filters:</p>
+      <div>
+        <div>
+          <input name="serch" placeholder="Search for anything" />
+          <button type="submit">
+            <svg
+              class="baseline-search"
+              width="20"
+              height="20"
+              viewBox="0 0 32 32"
+            >
+              <path
+                d="M20.667 18.667h-1.053l-0.373-0.36c1.352-1.568 2.095-3.57 2.093-5.64 0-1.714-0.508-3.39-1.46-4.815s-2.306-2.536-3.89-3.192c-1.584-0.656-3.326-0.828-5.007-0.493s-3.225 1.16-4.437 2.372c-1.212 1.212-2.037 2.756-2.372 4.437s-0.163 3.424 0.493 5.007c0.656 1.584 1.767 2.937 3.192 3.89s3.101 1.46 4.815 1.46c2.147 0 4.12-0.787 5.64-2.093l0.36 0.373v1.053l6.667 6.653 1.987-1.987-6.653-6.667zM12.667 18.667c-3.32 0-6-2.68-6-6s2.68-6 6-6c3.32 0 6 2.68 6 6s-2.68 6-6 6z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <select class="filters-select">
+          <option disabled selected hidden>Categories</option>
+        </select>
+      </div>
+    </div>
     
+  </body>
+</html>
+
+    <div class="carts-left">
+      <div class="products-container"></div>
+      <div class="carts-pagination"></div>
+    </div>
+    <div class="carts-right">
+      <div class="carts-popular"></div>
+      <div class="carts-discount"></div>
+    </div>
+  </div>
+</section>
+
     
     <button id="test">test</button>
 <div class="is-hidden modal-window" data-modal>
