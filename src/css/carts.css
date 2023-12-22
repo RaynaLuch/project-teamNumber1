@@ -1,0 +1,90 @@
+.carts-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* .carts-item {
+  background-color: var(--light-color);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 20px;
+} */
+
+/* body,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+} */
+
+.carts {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  background-color: var(--backgrownd-color);
+  color: var(--third-dark-color);
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 40px;
+}
+
+/* Можливо об'єднати: */
+.product-img {
+  padding: 30px;
+  background: var(--backgrownd-color);
+  border-radius: 10px;
+}
+
+.product-card {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--light-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s var(--transition-cub);
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* Можливо об'єднати: */
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  padding: 20px 58px;
+  background: var(--backgrownd-color);
+  border-radius: 10px;
+}
+
+.product-info h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+.product-info .product-price {
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--third-dark-color);
+}
