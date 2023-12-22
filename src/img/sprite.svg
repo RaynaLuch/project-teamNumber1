@@ -42,7 +42,13 @@
     <symbol id="icon-cross" viewBox="0 0 32 32">
       <path d="m26.286 8.106-2.392-2.392L16 13.608 8.106 5.714 5.714 8.106 13.608 16l-7.894 7.894 2.392 2.392L16 18.392l7.894 7.894 2.392-2.392L18.392 16l7.894-7.894z"/>
     </symbol>
-   </defs>
+    <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.667 21.333 13.334 16l5.333-5.333"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 32 32">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.333 10.667 18.666 16l-5.333 5.333"/>
+    </symbol>
+  </defs>
 </svg>
 
 
