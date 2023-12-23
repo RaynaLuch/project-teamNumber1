@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filters</title>
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"></link>
     <link rel="stylesheet" href="../css/filters.css" />
   </head>
   <body>
@@ -11,8 +12,15 @@
       <p>Filters:</p>
       <div>
         <div>
-          <input name="serch" placeholder="Search for anything" />
-          <button type="submit">
+          <input
+            class="filtersInput"
+            name="serch"
+            placeholder="Search for anything"
+          />
+          <button class="filtersBtn" type="submit">
+            <!-- <svg class="" width="20" height="20">
+              <use href="../img/sprite.svg#icon-baseline-search"></use>
+            </svg> -->
             <svg
               class="baseline-search"
               width="20"
@@ -30,6 +38,6 @@
         </select>
       </div>
     </div>
-    <script type="module" src="js/filters.js"></script>
+    <script type="module" src="../js/filters.js"></script>
   </body>
 </html>
