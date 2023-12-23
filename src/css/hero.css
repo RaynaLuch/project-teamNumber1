@@ -1,0 +1,39 @@
+
+.hero-section {
+    margin-top: 72px;
+}
+.container {
+}
+.hero-container {
+}
+.hero-text-block {
+
+    text-align: center;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 48px; /* 109.091% */
+    letter-spacing: -0.88px;
+}
+.hero-text-title {
+
+}
+.hero-title-color {
+    color: var(--primary-dark-color);
+}
+.hero-text-desc {
+    width: 292px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+}
+.hero-image-block {
+    margin-top: 32px;
+}
+.hero-image-pic {
+    border-radius: 30px;
+    width:100%;
+}
+.hero-image {
+}
