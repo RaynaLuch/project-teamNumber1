@@ -49,3 +49,37 @@
     top: -7px;
     right: 8px;
 }
+@media only screen and (min-width: 768px) {
+    .hero-section {
+        margin-top: 116px;
+    }
+
+    .hero-text-title {
+        width: 658px;
+        font-size: 80px;
+        line-height: 80px; /* 100% */
+        letter-spacing: -1.6px;
+    }
+    .hero-text-desc {
+        width: 492px;
+        margin-top: 20px;
+        font-size: 18px;
+        line-height: 24px; /* 133.333% */
+    }
+    .hero-image-block {
+        margin-top: 40px;
+    }
+    .hero-image-pic {
+        border-radius: 30px;
+    }
+    .hero-image {
+        border-radius: 30px;
+    }
+    .hero-organic-icon {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: -7px;
+        right: 8px;
+    }
+}
