@@ -35,9 +35,9 @@
 }
 }
 
-.dis-product-card:last-child {
+/* .dis-product-card:last-child {
   margin-bottom: 140px;
-}
+} */
 
 .dis-product-card:hover {
   transform: scale(1.05);
