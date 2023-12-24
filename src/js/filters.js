@@ -6,7 +6,9 @@ import SlimSelect from 'slim-select';
 const filtersSelect = document.querySelector('.filters-select');
 const filtersInput = document.querySelector('.filtersInput');
 const filtersBtn = document.querySelector('.filtersBtn');
+// const filtersSecondSelect = document.querySelector('.filtersSecondSelect');
 let ProductsList;
+// let infoSecondSelection;
 
 //Додаємо початкові значення змінних у локальне сховище
 const filterParams = {
@@ -84,7 +86,7 @@ filtersBtn.addEventListener('click', handleBtn);
 
 //Функція визначення того, що обрав користувач та відправки даних на сервер
 
-async function handleSelection(event) {
+export async function handleSelection(event) {
   filterParams.category = event.currentTarget.value;
   if (filterParams.category === 'Show all') {
     filterParams.category = null;
@@ -94,9 +96,10 @@ async function handleSelection(event) {
 
   ProductsList = await getProductsListInServer(filterParams);
   console.log(ProductsList);
+  SecondSelection(ProductsList);
 }
 //Функція яка зчинує введені дані користувачем з інпута та зберігає їх у локальне сховище
-async function handleBtn() {
+export async function handleBtn() {
   const inputInformation = filtersInput.value;
   if (!inputInformation.trim()) {
     filterParams.keyword = null;
@@ -106,4 +109,28 @@ async function handleBtn() {
   localStorage.setItem('filterParams', JSON.stringify(filterParams));
   ProductsList = await getProductsListInServer(filterParams);
   console.log(ProductsList);
+  SecondSelection(ProductsList);
 }
+// відслуховуємо сортування
+// filtersSecondSelect.addEventListener('change', handleSecondSelection);
+
+// function handleSecondSelection(even) {
+//   infoSecondSelection = even.currentTarget.value;
+//   localStorage.setItem(
+//     'filterSecondSelection',
+//     JSON.stringify(infoSecondSelection)
+//   );
+// }
+// function SecondSelection(ProductsList) {
+//   infoSecondSelection = localStorage.getItem('filterSecondSelection');
+//   let sortProductList;
+//   if ((infoSecondSelection = 'A to Z')) {
+//     sortProductList = ProductsList.map(res => res.name).sort((a, b) =>
+//       b.localeCompare(a)
+//     );
+//     console.log(sortProductList);
+//   }
+
+//   console.log(ProductsList);
+//   console.log(sortProductList);
+// }
