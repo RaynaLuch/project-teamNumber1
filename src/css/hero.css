@@ -12,7 +12,7 @@
     align-items: center;
 }
 .hero-text-title {
-    font-family: var(--main-font);
+    /* font-family: var(--main-font); */
     text-align: center;
     font-size: 44px;
     font-style: normal;
@@ -25,6 +25,8 @@
 }
 .hero-text-desc {
     width: 292px;
+    text-align: center;
+    font-style: normal;
     margin-top: 16px;
     font-size: 14px;
     font-weight: 400;
@@ -69,17 +71,37 @@
     .hero-image-block {
         margin-top: 40px;
     }
-    .hero-image-pic {
-        border-radius: 30px;
-    }
-    .hero-image {
-        border-radius: 30px;
-    }
     .hero-organic-icon {
         position: absolute;
         width: 100px;
         height: 100px;
-        top: -7px;
-        right: 8px;
+        top: -30px;
+        right: 10px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .hero-section {
+        margin-top: 77px;
+    }
+
+    .hero-text-title {
+        width: auto;
+    }
+    .hero-text-desc {
+        margin-top: 20px;
+    }
+    .hero-image-block {
+        margin-top: 40px;
+    }
+    .hero-image-pic {
+        width:1240px;
+    }
+    .hero-image {
+        width:1240px;
+    }
+    .hero-organic-icon {
+        top: -50px;
+        right: 20px;
     }
 }
