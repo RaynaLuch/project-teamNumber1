@@ -1,0 +1,98 @@
+@import url('./styles.css');
+
+#containerFilter {
+  margin-top: 74px;
+  font-family: var(--main-font);
+}
+.filterText {
+  color: rgba(1, 1, 1, 0.3);
+  line-height: 1.29;
+  padding-bottom: 8px;
+}
+.filterContainerNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .filterContainerNavigation {
+    flex-direction: row;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+}
+.filtersInput {
+  width: 335px;
+  height: 48px;
+  padding: 14px 40px 14px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  background-color: var(--backgrownd-color);
+}
+.filtersInput:hover,
+.filtersInput:focus {
+  border-color: var(--primary-dark-color);
+}
+@media (min-width: 768px) {
+  .filtersInput {
+    width: 269px;
+    height: 52px;
+    font-size: 18px;
+  }
+}
+.filtersInput::placeholder {
+  color: var(--third-dark-color);
+  font-size: 14px;
+  line-height: 1.29;
+  background-color: var(--backgrownd-color);
+}
+@media (min-width: 768px) {
+  .filtersInput::placeholder {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+.filterInputAndBtn {
+  position: relative;
+}
+.filtersBtn {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: var(--backgrownd-color);
+}
+.filters-select {
+  width: 335px;
+  padding: 14px 20px 14px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: var(--third-dark-color);
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  background-color: var(--backgrownd-color);
+  min-height: 48px;
+}
+.filters-select:hover {
+  border-color: var(--primary-dark-color);
+}
+@media (min-width: 768px) {
+  .filters-select {
+    width: 189px;
+    min-height: 52px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+.filters-select option {
+  color: var(--secondary-dark-color);
+}
+.filters-select[aria-expanded='true'] {
+  border-radius: 30px;
+}
