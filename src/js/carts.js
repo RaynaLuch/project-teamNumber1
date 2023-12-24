@@ -42,10 +42,19 @@ function createMarkup(arr) {
         <img class="product-img" src="${img}" alt="${name} width="1000px" />
         <div class="product-info">
           <h3>${name}</h3>
-          <p>Category: ${category}</p>
-          <p>Size: ${size}</p>
-          <p>Popularity: ${popularity}</p>
-          <p class="product-price">$${price}</p>
+          <div class="product-description">
+            <p><span>Category:</span> ${category}</p>
+            <p><span>Size:</span> ${size}</p>
+            <p><span>Popularity:</span> ${popularity}</p>
+          </div>
+          <div class="product-forsale">
+            <p class="product-price">$${price}</p>
+            <div class="carts-svg-box">
+              <svg width="18" height="18">
+                <use href="./img/sprite.svg#icon-white-basket"></use>
+              </svg>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
@@ -55,3 +64,18 @@ function createMarkup(arr) {
 }
 
 fetchData();
+
+// Opening modal window -------------------------------------
+
+import showProductCard from './modal';
+
+const selectedCard = document.querySelector('.products-container');
+selectedCard.addEventListener('click', handleClickOpen);
+
+function handleClickOpen(event) {
+  event.preventDefault();
+  console.log(event);
+  showProductCard('640c2dd963a319ea671e383b');
+}
+
+// showProductCard('640c2dd963a319ea671e383b');
