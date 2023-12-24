@@ -1,8 +1,5 @@
 footer {
   background-color: var(--primary-dark-color);
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   padding: 40px 100px 20px 100px;
   border-radius: 10px;
