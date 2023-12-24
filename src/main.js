@@ -1,4 +1,6 @@
 import './js/carts';
+import './js/discount.js';
+
 import showProductCard from './js/modal.js';
 const testModalBtn = document.querySelector('#test');
 testModalBtn.addEventListener('click', () =>

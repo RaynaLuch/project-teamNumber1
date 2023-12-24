@@ -8,7 +8,7 @@ async function fetchData() {
   try {
     const data = await serviceProducts();
     if (data.results) {
-      console.log(data);
+      // console.log(data);
       productsContainer.innerHTML = createMarkup(data.results);
     } else {
       console.error(`No results found in the response data.`);
