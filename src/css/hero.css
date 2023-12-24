@@ -8,15 +8,15 @@
 }
 .hero-text-block {
 
+}
+.hero-text-title {
+    font-family: var(--main-font);
     text-align: center;
     font-size: 44px;
     font-style: normal;
     font-weight: 500;
     line-height: 48px; /* 109.091% */
     letter-spacing: -0.88px;
-}
-.hero-text-title {
-
 }
 .hero-title-color {
     color: var(--primary-dark-color);
@@ -29,6 +29,7 @@
     line-height: 18px; /* 128.571% */
 }
 .hero-image-block {
+    position: relative;
     margin-top: 32px;
 }
 .hero-image-pic {
@@ -36,4 +37,9 @@
     width:100%;
 }
 .hero-image {
+}
+.hero-organic-icon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
 }
