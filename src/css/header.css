@@ -1,14 +1,14 @@
-
-
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items:center;
-    
+    margin-top: 18px;
 }
 .logo-section {
+
+}
+.logo-link {
     display: flex;
-    /* justify-content: flex-end; */
     align-items: center;
     gap: 8px;
 }
@@ -17,7 +17,6 @@
     background: var(--primary-dark-color);
     width: 28px;
     height: 28px;
-    flex-shrink: 0; 
 }
 .logo-text {
     font-family: var(--icon-font);
@@ -28,17 +27,17 @@
     letter-spacing: -0.36px;
 }
 .header-nav {
+   
+}
+.header-list {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6px;
 }
-.header-list {
-}
 .header-home {
     color: var(--backgrownd-color);
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: 18px; /* 128.571% */
     display: flex;
@@ -58,6 +57,7 @@
 .header-cart-link {
 }
 .header-cart-btn {
+
     display: flex;
     padding: 12px;
     justify-content: center;
@@ -67,8 +67,77 @@
     background: var(--primary-dark-color);
 }
 .cart-img {
-
+    width: 14px;
+    height: 14px;
 }
-.header-cart-text {
-    display: none;
+@media only screen and (max-width: 767px) {
+  .header-cart-text {
+      display: none;
+  } 
+}
+
+@media only screen and (min-width: 768px) {
+    .header-container {
+        margin-top: 24px;
+    }
+
+    .logo-img {
+        width: 32px;
+        height: 32px;
+    }
+    .logo-text {
+        font-size: 24px;
+        line-height: 24px; /* 100% */
+        letter-spacing: -0.48px;
+    }
+
+    .header-list {
+        gap: 16px;
+    }
+    .header-home {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px; /* 133.333% */
+        padding: 12px 28px;
+    }
+    .header-home-link {
+    }
+    .link {
+    }
+    .header-cart {
+
+    }
+    .header-cart-link {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+    }
+    .header-cart-btn {
+    
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 30px;
+        background: var(--primary-dark-color);
+    }
+    .cart-img {
+        width: 18px;
+        height: 18px;
+    }
+    .header-cart-text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px; /* 133.333% */
+        text-transform: uppercase;
+    }
+}
+@media only screen and (min-width: 1440px) {
+
+
+    .header-list {
+        gap: 24px;
+    }
+
 }
