@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { addProduct, findProductInCart, removeProduct } from './manage-cart.js';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
 
@@ -6,6 +7,8 @@ const closeModalBtn = document.querySelector('[data-modal-close]');
 const modal = document.querySelector('[data-modal]');
 
 closeModalBtn.addEventListener('click', toggleModal);
+
+const modalCartBtn = document.querySelector('.modal-cart-button');
 
 function toggleModal() {
   modal.classList.toggle('is-hidden');
@@ -32,6 +35,19 @@ export default async function showProductCard(id) {
     modalDeskField.textContent = response.data.desc;
     modalPriceField.textContent = '$' + response.data.price;
     toggleModal();
+    if (findProductInCart(response.data._id)) {
+      modalCartBtn.textContent = 'Remove from';
+      modalCartBtn.addEventListener('click', event => {
+        const product = response.data;
+        removeProduct(product._id);
+      });
+    } else {
+      modalCartBtn.textContent = 'Add to';
+      modalCartBtn.addEventListener('click', event => {
+        const product = response.data;
+        addProduct(product);
+      });
+    }
   } catch (error) {
     console.log(error);
   }
