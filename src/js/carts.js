@@ -58,8 +58,6 @@ function createMarkup(arr) {
   return markup;
 }
 
-// fetchData();
-
 function setCartButtonEventListeners(arr) {
   document.querySelectorAll('.cart-btn-list').forEach(button => {
     button.addEventListener('click', event => {
