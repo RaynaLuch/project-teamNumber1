@@ -57,7 +57,7 @@
 .header-cart-link {
 }
 .header-cart-btn {
-
+    border: none;
     display: flex;
     padding: 12px;
     justify-content: center;
@@ -66,6 +66,9 @@
     border-radius: 30px;
     background: var(--primary-dark-color);
 }
+.header-cart-btn:hover {
+    transform: scale(1.1);
+  }
 .cart-img {
     width: 14px;
     height: 14px;

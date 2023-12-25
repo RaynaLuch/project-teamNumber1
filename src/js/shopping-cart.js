@@ -20,7 +20,13 @@ const items = [{
   category: 'Pantry_Items',
   size: '2oz',
   price: 4.99,
-}
+},
+{
+  img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e385e.png',
+productName: 'Ancho Chillies',
+category: 'Pantry_Items',
+size: '100g',
+price: 4.99,}
 ]
     
 function localS() {
@@ -34,14 +40,38 @@ function getItems() {
   return parsedItems
 }
 
+const emptyBasket = `<div class="empty">
+<img src="./img/yellow shopping basket.png" alt="empty basket" class="empty-picture">
+<h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
+<p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
+</div>`
+
 function createPage() {
-  if (localStorage.length !== 0) {
+const products = localStorage.getItem("basket")
+const parsedProducts = JSON.parse(products)
+console.log(parsedProducts);
+  if (parsedProducts !== null) {
     list.insertAdjacentHTML('beforeend', createImageMarkup(getItems()));
-  }
-  }
+    return
+    } 
+      sub.innerHTML = emptyBasket;
+    
+  
+  
+}
 
 createPage();
 
+
+
+
+// EMPTY MARKUP function
+
+
+
+
+
+// MARKUP function
 function createImageMarkup(array) {
   return array
     .map(
@@ -54,7 +84,7 @@ function createImageMarkup(array) {
         height="100"
       alt="avocado"
       />
-      <div class="product-info">
+      <div class="">
         <p class="product-name">${productName}</p>
 
         <div class="product-descr">
@@ -75,16 +105,18 @@ function createImageMarkup(array) {
     .join('');
 }
 
-function getLocalStorage() {
-    const products = localStorage.getItem("basket")
-    const parsedProducts = JSON.parse(products)
-    console.log(parsedProducts);
-    if (parsedProducts === null) {
-      console.log("hi");
-    }
-    
-}
 
-getLocalStorage()
+
+// function getLocalStorage() {
+//   const products = localStorage.getItem("basket")
+//   const parsedProducts = JSON.parse(products)
+//   console.log(parsedProducts);
+//   if (parsedProducts === null) {
+//     console.log("hi");
+//   }
+  
+// }
+
+// getLocalStorage()
 
 
