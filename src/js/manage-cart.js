@@ -1,3 +1,4 @@
+import { setNumItems } from './header.js';
 export {
   addProduct,
   findProductInCart,
@@ -11,6 +12,7 @@ function addProduct(product) {
   const shoppingCart = getCart();
   shoppingCart.push(product);
   localStorage.setItem(STORAGE, JSON.stringify(shoppingCart));
+  setNumItems();
 }
 
 function findProductInCart(id) {
@@ -33,8 +35,10 @@ function removeProduct(id) {
   let shoppingCart = getCart();
   shoppingCart = shoppingCart.filter(p => p._id !== id);
   localStorage.setItem(STORAGE, JSON.stringify(shoppingCart));
+  setNumItems();
 }
 
 function removeAllProducts() {
   localStorage.removeItem(STORAGE);
+  setNumItems();
 }
