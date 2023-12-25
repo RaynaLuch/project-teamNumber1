@@ -36,3 +36,16 @@ export default async function showProductCard(id) {
     console.log(error);
   }
 }
+const closeModalBtnShCart = document.querySelector(
+  '[data-modal-close-shopping-cart]'
+);
+const modalShCart = document.querySelector('[data-modal-shopping-cart]');
+
+closeModalBtnShCart.addEventListener('click', toggleModalShCart);
+
+function toggleModalShCart() {
+  modalShCart.classList.toggle('is-hidden');
+}
+
+const orderModalBtn = document.querySelector('.order-btn');
+orderModalBtn?.addEventListener('click', () => toggleModalShCart());
