@@ -1,4 +1,10 @@
-export { addProduct, findProductInCart, removeProduct, removeAllProducts };
+export {
+  addProduct,
+  findProductInCart,
+  removeProduct,
+  removeAllProducts,
+  getCart,
+};
 const STORAGE = 'shoppingCart';
 
 function addProduct(product) {
