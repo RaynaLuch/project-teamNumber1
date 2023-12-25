@@ -6,8 +6,6 @@ const BASE_URL = 'https://food-boutique.b.goit.study/api';
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const modal = document.querySelector('[data-modal]');
 
-closeModalBtn.addEventListener('click', toggleModal);
-
 const modalCartBtn = document.querySelector('.modal-cart-button');
 
 function toggleModal() {
@@ -39,13 +37,15 @@ export default async function showProductCard(id) {
       const product = response.data;
       removeProduct(product._id);
       modalCartBtn.removeEventListener('click', removeProductHandler);
-      toggleModal();
+      modalCartBtn.firstChild.textContent = 'Add to';
+      modalCartBtn.addEventListener('click', addProductHandler);
     };
     const addProductHandler = event => {
       const product = response.data;
       addProduct(product);
       modalCartBtn.removeEventListener('click', addProductHandler);
-      toggleModal();
+      modalCartBtn.firstChild.textContent = 'Remove from';
+      modalCartBtn.addEventListener('click', removeProductHandler);
     };
 
     if (findProductInCart(response.data._id)) {
@@ -54,6 +54,15 @@ export default async function showProductCard(id) {
     } else {
       modalCartBtn.firstChild.textContent = 'Add to';
       modalCartBtn.addEventListener('click', addProductHandler);
+    }
+
+    closeModalBtn.addEventListener('click', closeModalHandler);
+
+    function closeModalHandler() {
+      modalCartBtn.removeEventListener('click', addProductHandler);
+      modalCartBtn.removeEventListener('click', removeProductHandler);
+      closeModalBtn.removeEventListener('click', closeModalHandler);
+      toggleModal();
     }
   } catch (error) {
     console.log(error);
