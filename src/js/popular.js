@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { showProductCard } from './modal';
+import showProductCard from './modal';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products/popular';
 const popularContainer = document.querySelector('.carts-popular');
