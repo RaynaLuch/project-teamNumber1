@@ -4,6 +4,165 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <script type="module" crossorigin src="/project-teamNumber1/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-teamNumber1/assets/styles-f02d5c18.js">
+    <link rel="stylesheet" href="/project-teamNumber1/assets/styles-ed3ce026.css">
   </head>
-  <body></body>
+  <body>
+    
+<header class="container">
+    <div class="header-container">
+      <div class="logo-section">
+        <a class="logo-link link" href="./index.html">
+         <svg class="logo-img">
+          <use href="/project-teamNumber1/assets/sprite-0f0492a9.svg#icon-white-logo"></use>
+        </svg>
+         <span class="logo-text">Food Boutique</span>
+        </a>
+      </div>
+        <nav class="header-nav">
+        <ul class="header-list list">
+          <li class="header-home">
+            <a class="header-home-link link" href="./index.html">Home</a>
+          </li>
+          <li class="header-cart">
+            <a class="header-cart-link" href="./partials/carts.html">
+            <button class="header-cart-btn">
+              <svg class="cart-img">
+                <use href="../img/sprite.svg#icon-white-basket"></use>
+              </svg>
+              </button>
+            <span class="header-cart-text">CART (0)</span> 
+            </a>
+          </li>
+        </ul>
+        </nav>
+    </div>
+  </header>
+
+    <div class="container shopping-cart-container">
+
+      <!-- main container -->
+      <div class="main-container">
+      <!-- BASKET -->
+        <div class="basket-container">
+          <div class="icon-container">
+            <svg class="" width="18" height="18">
+              <use href="/project-teamNumber1/assets/sprite-0f0492a9.svg#icon-white-basket"></use>
+            </svg>
+          </div>
+          <h1 class="basket-container-text">CART (0)</h1>
+        </div>
+        <!-- SUB CONTAINER -->
+        <div class="sub-container">
+          <!-- LIST -->
+          <div class="list-container">
+            <button class="delete-btn" type="button">
+              Delete all
+
+              <svg class="" width="24" height="24">
+                <use href="/project-teamNumber1/assets/sprite-0f0492a9.svg#icon-cross"></use>
+              </svg>
+            </button>
+
+            <ul class="product-list"></ul>
+          </div>
+          <!-- ORDER -->
+          <div class="your-order">
+            <h2 class="order-text">YOUR ORDER</h2>
+            <div class="total-price">
+              <p class="total-text">Total</p>
+              <p class="sum-text">Sum: <span class="amount">$0,00</span></p>
+            </div>
+            <form class="order-form">
+              <input
+                type="email"
+                id="email"
+                name="e-mail"
+                class="order-input"
+                placeholder="Mail: Enter your email"
+              />
+              <button type="submit" class="order-btn">Checkout</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+  <div class="footer-top-div">
+    <div>
+      <div class="footer-logo-div">
+        <a href="../index.html" class="footer-logo-link">
+          <svg width="32" height="32" class="footer-icon-svg">
+            <use href="/project-teamNumber1/assets/sprite-0f0492a9.svg#icon-green-logo"></use>
+          </svg>
+          Food Boutique
+        </a>
+      </div>
+
+      <div class="footer-social-div">
+        <a href="https://www.facebook.com/goITclub/" class="footer-icon-link">
+          <svg width="40" height="40" class="footer-icon-social">
+            <use href="/project-teamNumber1/assets/sprite-0f0492a9.svg#icon-facebook"></use>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/goitclub/" class="footer-icon-link">
+          <svg width="40" height="40" class="footer-icon-social">
+            <use href="/project-teamNumber1/assets/sprite-0f0492a9.svg#icon-instagram"></use>
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/c/GoIT" class="footer-icon-link">
+          <svg width="40" height="40" class="footer-icon-social">
+            <use href="/project-teamNumber1/assets/sprite-0f0492a9.svg#icon-youtube"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="central-and-form-divs">
+      <div class="footer-central-div">
+        <h2 class="footer-central-h2">
+          Discover the Variety of Flavors and Quality
+        </h2>
+        <p class="footer-central-p">
+          An online store where you will find fresh, natural and delicious
+          products for a healthy life and unforgettable gastronomic adventures.
+        </p>
+      </div>
+
+      <form class="footer-form">
+        <label for="email">Subscribe and learn about new products!</label>
+        <input
+          type="email"
+          placeholder="Email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}[^\s]+$"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-rights-p">Food Boutique. All rights reserved.</p>
+
+    <div class="footer-privacy">
+      <p>Privacy Policy</p>
+      <p>/</p>
+      <p>Terms of Service</p>
+    </div>
+  </div>
+</footer>
+
+    
+  </body>
 </html>
