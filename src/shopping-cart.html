@@ -4,6 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <load ="partials/header.html" />
+
+    <div class="container shopping-cart-container">
+
+      <!-- main container -->
+      <div class="main-container">
+      <!-- BASKET -->
+        <div class="basket-container">
+          <div class="icon-container">
+            <svg class="" width="18" height="18">
+              <use href="./img/sprite.svg#icon-white-basket"></use>
+            </svg>
+          </div>
+          <h1 class="basket-container-text">CART (0)</h1>
+        </div>
+        <!-- SUB CONTAINER -->
+        <div class="sub-container">
+          <!-- LIST -->
+          <div class="list-container">
+            <button class="delete-btn" type="button">
+              Delete all
+
+              <svg class="" width="24" height="24">
+                <use href="./img/sprite.svg#icon-cross"></use>
+              </svg>
+            </button>
+
+            <ul class="product-list"></ul>
+          </div>
+          <!-- ORDER -->
+          <div class="your-order">
+            <h2 class="order-text">YOUR ORDER</h2>
+            <div class="total-price">
+              <p class="total-text">Total</p>
+              <p class="sum-text">Sum: <span class="amount">$0,00</span></p>
+            </div>
+            <form class="order-form">
+              <input
+                type="email"
+                id="email"
+                name="e-mail"
+                class="order-input"
+                placeholder="Mail: Enter your email"
+              />
+              <button type="submit" class="order-btn">Checkout</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <load ="partials/footer.html" />
+    <script type="module" src="./js/shopping-cart.js"></script>
+  </body>
 </html>
