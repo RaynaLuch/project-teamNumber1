@@ -20,8 +20,8 @@
 @media (min-width: 768px) {
   .products-container ul {
     display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
+    /* flex-wrap: wrap;
+    gap: 32px; */
   }
 }
 
@@ -43,7 +43,7 @@
 @media (min-width: 768px) {
   .product-card {
     flex-basis: calc((100% - 32px) / 2);
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
   }
 }
 
@@ -58,7 +58,7 @@
 .product-img {
   background: var(--backgrownd-color);
   margin-bottom: 20px;
-  padding: 19px 77px;
+  padding: 19px 78px;
   border-radius: 10px;
 }
 
@@ -87,6 +87,7 @@
 
 .product-forsale {
   display: flex;
+  /* gap: 215px; */
   justify-content: space-between;
   align-items: end;
 }
@@ -101,6 +102,7 @@
 .carts-svg-box {
   background-color: var(--primary-dark-color);
   border-radius: 30px;
+  border-color: transparent;
   padding: 8px;
   display: flex;
   justify-content: center;
@@ -109,4 +111,29 @@
 }
 .carts-svg-box:hover {
   background-color: var(--secondary-dark-color);
+}
+
+/* Scroll up */
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: var(--primary-dark-color); /* Set a background color */
+  color: var(--light-color); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px 12px; /* Some padding */
+  border-radius: 27px; /* Rounded corners */
+  font-size: 14px; /* Increase font size */
+  font-family: var(--main-font);
+}
+
+#myBtn:hover {
+  background-color: var(
+    --secondary-dark-color
+  ); /* Add a dark-grey background on hover */
 }
