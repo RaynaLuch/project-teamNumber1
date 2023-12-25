@@ -39,7 +39,9 @@ function createMarkup(arr) {
       ({ img, name, price, category, size, popularity }) => `
     <ul>
       <li class="product-card">
-        <img class="product-img" src="${img}" alt="${name} width="1000px" />
+        <div class="carts-img-box">
+          <img class="product-img" src="${img}" alt="${name}" />
+        </div>
         <div class="product-info">
           <h3>${name}</h3>
           <div class="product-description">
@@ -49,11 +51,11 @@ function createMarkup(arr) {
           </div>
           <div class="product-forsale">
             <p class="product-price">$${price}</p>
-            <div class="carts-svg-box">
+            <button class="carts-svg-box" type="button">
               <svg width="18" height="18">
                 <use href="./img/sprite.svg#icon-white-basket"></use>
               </svg>
-            </div>
+            </button>
           </div>
         </div>
       </li>
@@ -74,8 +76,30 @@ selectedCard.addEventListener('click', handleClickOpen);
 
 function handleClickOpen(event) {
   event.preventDefault();
-  console.log(event);
-  showProductCard('640c2dd963a319ea671e383b');
+  showProductCard(response.data._id);
 }
 
 // showProductCard('640c2dd963a319ea671e383b');
+
+// -------------------------------------------------------
+
+// Scroll Up
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById('myBtn').style.display = 'block';
+  } else {
+    document.getElementById('myBtn').style.display = 'none';
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
