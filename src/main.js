@@ -1,5 +1,6 @@
 import './js/carts';
 import './js/discount.js';
+import './js/footer.js';
 
 import showProductCard from './js/modal.js';
 const testModalBtn = document.querySelector('#test');
