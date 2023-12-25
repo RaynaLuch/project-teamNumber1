@@ -35,18 +35,25 @@ export default async function showProductCard(id) {
     modalDeskField.textContent = response.data.desc;
     modalPriceField.textContent = '$' + response.data.price;
     toggleModal();
+    const removeProductHandler = event => {
+      const product = response.data;
+      removeProduct(product._id);
+      modalCartBtn.removeEventListener('click', removeProductHandler);
+      toggleModal();
+    };
+    const addProductHandler = event => {
+      const product = response.data;
+      addProduct(product);
+      modalCartBtn.removeEventListener('click', addProductHandler);
+      toggleModal();
+    };
+
     if (findProductInCart(response.data._id)) {
-      modalCartBtn.textContent = 'Remove from';
-      modalCartBtn.addEventListener('click', event => {
-        const product = response.data;
-        removeProduct(product._id);
-      });
+      modalCartBtn.firstChild.textContent = 'Remove from';
+      modalCartBtn.addEventListener('click', removeProductHandler);
     } else {
-      modalCartBtn.textContent = 'Add to';
-      modalCartBtn.addEventListener('click', event => {
-        const product = response.data;
-        addProduct(product);
-      });
+      modalCartBtn.firstChild.textContent = 'Add to';
+      modalCartBtn.addEventListener('click', addProductHandler);
     }
   } catch (error) {
     console.log(error);
