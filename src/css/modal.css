@@ -150,6 +150,10 @@
   padding: 40px 20px 60px 20px;
 }
 
+.modal-img-shopping-cart {
+  margin: 0 auto;
+}
+
 .modal-shopping-cart-title {
   text-align: center;
   font-size: 18px;
@@ -157,6 +161,8 @@
   font-weight: 500;
   line-height: 20px; /* 111.111% */
   text-transform: uppercase;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
 .modal-shopping-cart-text {
   text-align: center;
@@ -190,5 +196,22 @@
 
   .modal-img {
     padding: 26px 40px;
+  }
+
+  .modal-shopping-cart {
+    width: 560px;
+    height: 509px;
+    padding: 80px 40px;
+  }
+
+  .modal-shopping-cart-title {
+    font-size: 32px;
+    line-height: 32px; /* 100% */
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  .modal-shopping-cart-text {
+    font-size: 18px;
+    line-height: 24px;
   }
 }
