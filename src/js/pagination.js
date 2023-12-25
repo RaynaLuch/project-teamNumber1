@@ -20,6 +20,10 @@ function getFilters() {
     return savedFilters ? JSON.parse(savedFilters) : { keyword: null, category: null, page: 1, limit: 6 };
 }
 
+function saveFilters(filters) {
+    localStorage.setItem('productFilters', JSON.stringify(filters));
+}
+
 function updateFilter(key, value) {
     const filters = getFilters();
     filters[key] = value;
