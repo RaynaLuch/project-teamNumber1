@@ -6,11 +6,9 @@
   margin-top: 20px;
 }
 .popular-product-title {
-  font-family: Neue Montreal;
-  font-size: 28px;
-  font-style: normal;
+  font-size: 24px;
   font-weight: 500;
-  line-height: 1.14;
+  line-height: 1.16;
 }
 .product-preview {
   flex-grow: 0;
@@ -23,7 +21,7 @@
   font-size: 12px;
   line-height: 14px;
   color: #010101;
-  background: #fafafa;
+  background: var(--light-color);
   align-items: flex-start;
   gap: 10px;
   transition: scale 0.3s var(--transition-cub);
@@ -38,7 +36,7 @@
   border-radius: 10px;
   height: 100%;
   padding: 9px;
-  background: #e8e8e2;
+  background: var(--backgrownd-color);
 }
 
 .product-preview__info {
@@ -120,16 +118,8 @@
     line-height: 22px;
     margin-bottom: 10px;
   }
-}
-
-@media screen and (min-width: 768px) {
-  .product-preview {
-    width: 275px;
-  }
-
-  .product-preview__heading {
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 10px;
+  .popular-product-title {
+    font-size: 28px;
+    line-height: 1.14;
   }
 }
