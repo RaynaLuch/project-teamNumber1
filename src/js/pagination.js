@@ -5,6 +5,7 @@ import { createMarkup, setCartButtonEventListeners, updateCartButtonIcons } from
 
 const productsListContainer = document.getElementById('products-container');
 let pagination;
+let visiblePages = window.innerWidth < 768 ? 2 : 4;
 
 function getProducts(page, limit) {
   return axios.get('https://food-boutique.b.goit.study/api/products', {
@@ -44,6 +45,7 @@ function updatePageSize() {
   const currentFilters = getFilters();
   if (currentFilters.limit !== limit) {
     updateFilter('limit', limit);
+    visiblePages = window.innerWidth < 768 ? 2 : 4;
     renderProducts();
   }
 }
@@ -67,7 +69,7 @@ async function renderProducts() {
       pagination = new Pagination(container, {
         totalItems: totalItems,
         itemsPerPage: limit,
-        visiblePages: 4,
+        visiblePages: visiblePages,
         centerAlign: true,
         page: page,
       });
@@ -94,4 +96,3 @@ async function renderProducts() {
 }
 
 renderProducts();
-
