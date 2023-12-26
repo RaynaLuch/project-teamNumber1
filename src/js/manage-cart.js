@@ -1,4 +1,5 @@
 import { setNumItems } from './header.js';
+import updatePopularCard from './updatePopularCard.js';
 export {
   addProduct,
   findProductInCart,
@@ -13,6 +14,7 @@ function addProduct(product) {
   shoppingCart.push(product);
   localStorage.setItem(STORAGE, JSON.stringify(shoppingCart));
   setNumItems();
+  updatePopularCard(product._id, true);
 }
 
 function findProductInCart(id) {
@@ -36,6 +38,7 @@ function removeProduct(id) {
   shoppingCart = shoppingCart.filter(p => p._id !== id);
   localStorage.setItem(STORAGE, JSON.stringify(shoppingCart));
   setNumItems();
+  updatePopularCard(id, false);
 }
 
 function removeAllProducts() {
