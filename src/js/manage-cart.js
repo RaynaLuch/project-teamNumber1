@@ -14,7 +14,9 @@ function addProduct(product) {
   shoppingCart.push(product);
   localStorage.setItem(STORAGE, JSON.stringify(shoppingCart));
   setNumItems();
-  updatePopularCard(product._id, true);
+  try {
+    updatePopularCard(product._id, true);
+  } catch (error) {}
 }
 
 function findProductInCart(id) {
@@ -38,7 +40,9 @@ function removeProduct(id) {
   shoppingCart = shoppingCart.filter(p => p._id !== id);
   localStorage.setItem(STORAGE, JSON.stringify(shoppingCart));
   setNumItems();
-  updatePopularCard(id, false);
+  try {
+    updatePopularCard(id, false);
+  } catch (error) {}
 }
 
 function removeAllProducts() {
