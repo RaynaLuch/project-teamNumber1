@@ -1,6 +1,7 @@
 import axios from "axios";
 import icons from '../img/sprite.svg';
 import showProductCard from "./modal";
+import { addProduct, removeProduct } from "./manage-cart.js";
 
 const discount = document.querySelector(".carts-discount");
 
