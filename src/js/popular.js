@@ -1,28 +1,54 @@
 import axios from 'axios';
 import showProductCard from './modal';
+import { addProduct, findProductInCart } from './manage-cart';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products/popular';
 const popularContainer = document.querySelector('.carts-popular');
+
+const popularTitle = document.createElement('h2');
+popularTitle.textContent = 'Popular products';
+popularContainer.appendChild(popularTitle);
+
+const popularList = document.createElement('ul');
+popularList.classList.add('popular-product-list');
+popularContainer.appendChild(popularList);
+
+export function updateItemOnCartChange(id, isInCart) {
+  const cardEl = popularList.querySelector(`[data-id]="${id}"`);
+  if (isInCart) {
+    cardEl.classList.add('product-preview--in-cart');
+  } else {
+    cardEl.classList.remove('product-preview--in-cart');
+  }
+  if (!cardEl) {
+    return;
+  }
+  const buttonEl = cardEl.children[1].children[0].children[1];
+  buttonEl.children[0].children[0].setAttribute(
+    'href',
+    `./img/sprite.svg#${isInCart ? 'icon-check' : 'icon-cart'}`
+  );
+}
 
 function createImageCard(product) {
   if (!product) {
     console.error('Помилка');
     return null;
   }
-  // const inCart = isInCart(product.id); //pseudocode
-  const card = document.createElement('div');
+  const inCart = findProductInCart(product.id);
+  const card = document.createElement('li');
   card.classList.add('product-preview');
   const button = document.createElement('button');
-  button.onclick = () => {
-    // addToCart(product._id); //pseudocode
+  button.onclick = e => {
+    e.stopPropagation();
+    addProduct(product);
   };
-  // button.disabled = inCart;
   button.className = 'product-preview__cart-btn';
-  // button.innerHTML = `
-  //   <svg>
-  //     <use href="../img/sprite.svg#${inCart ? 'icon-check' : 'icon-cart'}">
-  //     </use>
-  //   </svg>`;
+  button.innerHTML = `
+    <svg>
+      <use href="./img/sprite.svg#${inCart ? 'icon-check' : 'icon-cart'}">
+      </use>
+    </svg>`;
   card.innerHTML = `
     <div class="product-preview__image-container">
       <img src="${product.img}" alt="${product.name}">

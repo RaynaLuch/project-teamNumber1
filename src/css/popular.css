@@ -81,6 +81,9 @@
   margin-left: auto;
 }
 
+.product-preview--in-cart .product-preview__cart-btn {
+  background: var(--primary-dark-color);
+}
 @media screen and (min-width: 768px) {
   .product-preview {
     width: 275px;
