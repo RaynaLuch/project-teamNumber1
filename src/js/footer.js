@@ -36,7 +36,6 @@ sendBtnFooter.addEventListener('click', function (event) {
     return;
   }
 
-  // Якщо адреса валідна, виконуємо інші дії
   createOrder();
 });
 
@@ -92,9 +91,11 @@ const breakpointWidth = 768;
 
 function updateImage() {
   if (window.innerWidth <= breakpointWidth) {
-    dynamicImage.src = 'https://github.com/RaynaLuch/project-teamNumber1/blob/main/src/img/rectangle-mobile.png?raw=true';
+    dynamicImage.src =
+      'https://github.com/RaynaLuch/project-teamNumber1/blob/main/src/img/rectangle-mobile.png?raw=true';
   } else {
-    dynamicImage.src = 'https://github.com/RaynaLuch/project-teamNumber1/blob/main/src/img/rectangle.png?raw=true';
+    dynamicImage.src =
+      'https://github.com/RaynaLuch/project-teamNumber1/blob/main/src/img/rectangle.png?raw=true';
   }
 }
 
