@@ -6,7 +6,7 @@ export {
   removeAllProducts,
   getCart,
 };
-const STORAGE = 'shoppingCart';
+const STORAGE = 'basket';
 
 function addProduct(product) {
   const shoppingCart = getCart();
