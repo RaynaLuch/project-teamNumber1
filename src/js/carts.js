@@ -1,3 +1,5 @@
+import showProductCard from './modal';
+import { addProduct } from './manage-cart';
 import icons from '../img/sprite.svg';
 
 function createMarkup(arr) {
@@ -6,7 +8,7 @@ function createMarkup(arr) {
       const categoryWithoutUnderscore = item.category.split('_').join(' ');
 
       return `
-      <li class="photo-card-list">
+      <li class="photo-card-list" data-id="${item._id}">
         <a class="product-modal-list" href="#">
           <div class="img-container-list">
             <img class="product-image-list" src="${item.img}" alt="${item.name} photo" width=140 height=140 loading="lazy" />
@@ -87,6 +89,18 @@ function updateCartButtonIcons() {
       `;
     }
   });
+
+  // Opening modal window -------------------------------------
+  const selectedCard = document.querySelectorAll('.photo-card-list');
+  selectedCard.forEach(li => {
+    li.addEventListener('click', event => {
+      console.log(event.target);
+      console.log(event.currentTarget);
+      if (event.target.nodeName === 'BUTTON') {
+      }
+      showProductCard(li.dataset.id);
+    });
+  });
 }
 
 function getCart() {
@@ -96,44 +110,25 @@ function getCart() {
 
 export { createMarkup, setCartButtonEventListeners, updateCartButtonIcons };
 
-// Opening modal window -------------------------------------
-
-import showProductCard from './modal';
-
-const selectedCard = document.querySelector('.products-container');
-selectedCard.addEventListener('click', handleClickOpen);
-
-function handleClickOpen(event) {
-  event.preventDefault();
-
-  if (event.target.nodeName !== 'LI') {
-    return;
-  }
-  // console.log(event.target);
-  showProductCard(item._id);
-}
-
-// showProductCard('640c2dd963a319ea671e383b');
-
 // -------------------------------------------------------
 
 // Scroll Up
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-  scrollFunction();
-};
+// window.onscroll = function () {
+//   scrollFunction();
+// };
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById('myBtn').style.display = 'block';
-  } else {
-    document.getElementById('myBtn').style.display = 'none';
-  }
-}
+// function scrollFunction() {
+//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//     document.getElementById('myBtn').style.display = 'block';
+//   } else {
+//     document.getElementById('myBtn').style.display = 'none';
+//   }
+// }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+// // When the user clicks on the button, scroll to the top of the document
+// function topFunction() {
+//   document.body.scrollTop = 0; // For Safari
+//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+// }
