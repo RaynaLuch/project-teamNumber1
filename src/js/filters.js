@@ -5,6 +5,7 @@ import '../../node_modules/slim-select/dist/slimselect.css';
 const filtersSelect = document.querySelector('.filters-select');
 const filtersInput = document.querySelector('.filtersInput');
 const filtersBtn = document.querySelector('.filtersBtn');
+let ProductsList;
 
 //Додаємо початкові значення змінних у локальне сховище
 const filterParams = {
@@ -91,7 +92,7 @@ export async function handleSelection(event) {
   }
 
   ProductsList = await getProductsListInServer(filterParams);
-  // console.log(ProductsList);
+  console.log(ProductsList);
 }
 //Функція яка зчинує введені дані користувачем з інпута та зберігає їх у локальне сховище
 export async function handleBtn() {
@@ -103,5 +104,5 @@ export async function handleBtn() {
   }
   localStorage.setItem('filterParams', JSON.stringify(filterParams));
   ProductsList = await getProductsListInServer(filterParams);
-  // console.log(ProductsList);
+  console.log(ProductsList);
 }
