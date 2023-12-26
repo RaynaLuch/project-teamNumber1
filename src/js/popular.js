@@ -54,7 +54,7 @@ function createImageCard(product) {
       </div>
       <div class="product-preview__description">
         <p class="product-preview__category"><span class="product-preview__sub-heading">Category:</span> ${product.category}</p>
-        <p><span class="product-preview__sub-heading">Size: ${product.size}</span></p>
+        <p><span class="product-preview__sub-heading">Size:</span> ${product.size}</p>
         <p><span class="product-preview__sub-heading">Popularity:</span> ${product.popularity}</p>
       </div>
     </div>
