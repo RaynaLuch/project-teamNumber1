@@ -4,11 +4,6 @@ const deleteBtn = document.querySelector(".delete-btn")
 const count = document.querySelector(".count")
 const totalPriceAmount = document.querySelector(".amount")
 
-// function getItems() {
-//   const item = localStorage.getItem('basket');
-//   const parsedItems = JSON.parse(item);
-//   return parsedItems
-// }
 
 function getCart() {
   let shoppingCart;
@@ -22,7 +17,7 @@ function getCart() {
 }
 
 const emptyBasket = `<div class="empty">
-<img src="./img/yellow shopping basket.png" alt="empty basket" class="empty-picture">
+<img src="/img/yellow shopping basket.png" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
 </div>`
@@ -30,9 +25,7 @@ const emptyBasket = `<div class="empty">
 function createPage() {
 const products = localStorage.getItem("basket")
 const parsedProducts = JSON.parse(products)
-
-// totalPrice(parsedProducts)
-  if (parsedProducts !== null) {
+if (parsedProducts !== null) {
     const numCount = parsedProducts.length
     list.insertAdjacentHTML('beforeend', createImageMarkup(getCart()));
     count.textContent = numCount;
@@ -52,10 +45,10 @@ deleteBtn.addEventListener("click",removeAllProducts)
 function removeAllProducts() {
   localStorage.removeItem("basket");
   createPage()
+  setNumItems()
 }
 
 // CART COUNTER FUNCTION
-
 
 function totalPrice(array) {
   let amm = 0;
@@ -88,7 +81,7 @@ function createImageMarkup(array) {
       </div>
       <button class="cart-btn" type="button">
         <svg class="">
-          <use href="./img/sprite.svg#icon-cross"></use>
+          <use href="/img/sprite.svg#icon-cross"></use>
         </svg>
       </button>
     </li>
@@ -97,12 +90,23 @@ function createImageMarkup(array) {
     .join('');
 }
 
-
 /**
   |============================
   | 
   |============================
 */
+
+
+export function setNumItems() {
+  const itemsNum = JSON.parse(localStorage.getItem("basket"))?.length ?? 0;
+  const iCount = document.querySelector(".itemsCount");
+  iCount.innerText = itemsNum;
+  
+};
+
+
+
+
 
 // list.addEventListener('click', deleteProduct) 
 
