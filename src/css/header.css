@@ -1,8 +1,11 @@
+.header-section {
+    margin-top: 18px;
+}
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items:center;
-    margin-top: 18px;
+
 }
 .logo-section {
 
@@ -80,7 +83,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .header-container {
+    .header-section {
         margin-top: 24px;
     }
 
