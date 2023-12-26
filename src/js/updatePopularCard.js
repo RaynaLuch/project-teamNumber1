@@ -1,3 +1,5 @@
+import icons from '../img/sprite.svg';
+
 export default function updatePopularCard(id, isInCart) {
   const popularList = document.querySelector('.popular-product-list');
   const cardEl = popularList.querySelector(`[data-id="${id}"]`);
@@ -15,6 +17,6 @@ export default function updatePopularCard(id, isInCart) {
   const buttonEl = cardEl.children[1].children[0].children[1];
   buttonEl.children[0].children[0].setAttribute(
     'href',
-    `./img/sprite.svg#${isInCart ? 'icon-check' : 'icon-cart'}`
+    `${icons}#${isInCart ? 'icon-check' : 'icon-cart'}`
   );
 }
