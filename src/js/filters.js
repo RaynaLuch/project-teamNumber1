@@ -1,12 +1,10 @@
 import axios from 'axios';
 import SlimSelect from 'slim-select';
-// import 'slim-select/dist/slimselect.css';
-// import './node_modules/slim-select/dist/slimselect.css';
+import '../../node_modules/slim-select/dist/slimselect.css';
 
 const filtersSelect = document.querySelector('.filters-select');
 const filtersInput = document.querySelector('.filtersInput');
 const filtersBtn = document.querySelector('.filtersBtn');
-let ProductsList;
 
 //Додаємо початкові значення змінних у локальне сховище
 const filterParams = {
@@ -84,7 +82,7 @@ filtersBtn.addEventListener('click', handleBtn);
 
 //Функція визначення того, що обрав користувач та відправки даних на сервер
 
-async function handleSelection(event) {
+export async function handleSelection(event) {
   filterParams.category = event.currentTarget.value;
   if (filterParams.category === 'Show all') {
     filterParams.category = null;
@@ -93,10 +91,10 @@ async function handleSelection(event) {
   }
 
   ProductsList = await getProductsListInServer(filterParams);
-  console.log(ProductsList);
+  // console.log(ProductsList);
 }
 //Функція яка зчинує введені дані користувачем з інпута та зберігає їх у локальне сховище
-async function handleBtn() {
+export async function handleBtn() {
   const inputInformation = filtersInput.value;
   if (!inputInformation.trim()) {
     filterParams.keyword = null;
@@ -105,5 +103,5 @@ async function handleBtn() {
   }
   localStorage.setItem('filterParams', JSON.stringify(filterParams));
   ProductsList = await getProductsListInServer(filterParams);
-  console.log(ProductsList);
+  // console.log(ProductsList);
 }

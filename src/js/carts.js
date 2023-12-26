@@ -1,69 +1,100 @@
-const BASE_URL = `https://food-boutique.b.goit.study/api`;
-const END_POINT = `/products`;
-const productsContainer = document.querySelector(`.products-container`);
-
-let page = 1;
-
-async function fetchData() {
-  try {
-    const data = await serviceProducts();
-    if (data.results) {
-      // console.log(data);
-      productsContainer.innerHTML = createMarkup(data.results);
-    } else {
-      console.error(`No results found in the response data.`);
-    }
-  } catch (error) {
-    console.error(`Error fetching products:`, error);
-  }
-}
-
-async function serviceProducts() {
-  const queryParams = new URLSearchParams({
-    page: page,
-    limit: 9,
-  });
-
-  const response = await fetch(`${BASE_URL}${END_POINT}?${queryParams}`);
-
-  if (!response.ok) {
-    throw new Error(response.status);
-  }
-
-  return response.json();
-}
+import icons from '../img/sprite.svg';
 
 function createMarkup(arr) {
-  return arr
-    .map(
-      ({ img, name, price, category, size, popularity }) => `
-    <ul>
-      <li class="product-card">
-        <img class="product-img" src="${img}" alt="${name} width="1000px" />
-        <div class="product-info">
-          <h3>${name}</h3>
-          <div class="product-description">
-            <p><span>Category:</span> ${category}</p>
-            <p><span>Size:</span> ${size}</p>
-            <p><span>Popularity:</span> ${popularity}</p>
+  const markup = `<ul class="card-container-list">${arr
+    .map(item => {
+      const categoryWithoutUnderscore = item.category.split('_').join(' ');
+
+      return `
+      <li class="photo-card-list">
+        <a class="product-modal-list" href="#">
+          <div class="img-container-list">
+            <img class="product-image-list" src="${item.img}" alt="${item.name} photo" width=140 height=140 loading="lazy" />
           </div>
-          <div class="product-forsale">
-            <p class="product-price">$${price}</p>
-            <div class="carts-svg-box">
-              <svg width="18" height="18">
-                <use href="./img/sprite.svg#icon-white-basket"></use>
-              </svg>
+
+          <div class="product-info-list">
+            <h3 class="product-name-list">${item.name}</h3>
+            <div class="product-atributes-list">
+              <p class="atributes-info-list">
+                <span class="atributes-list">Category:</span> ${categoryWithoutUnderscore}
+              </p>
+              <p class="atributes-info-list">
+                <span class="atributes-list">Size:</span> ${item.size}
+              </p>
+              <p class="atributes-info-list">
+                <span class="atributes-list">Popularity:</span> ${item.popularity}
+              </p>
             </div>
           </div>
-        </div>
+        </a>
+        <div class="price-and-btn-list">
+          <p class="product-price-list">$${item.price}</p>
+          <button class="cart-btn-list" type="button" data-product-id="${item._id}">
+            <svg class="list-cart-svg-list" width="18" height="18">
+              <use href="${icons}#icon-white-basket"></use>
+            </svg>
+          </button>
+        </div> 
       </li>
-    </ul>
-  `
-    )
-    .join('');
+  `;
+    })
+    .join('')}</ul>`;
+
+  setTimeout(() => {
+    document.querySelectorAll('.cart-btn-list').forEach(button => {
+      button.addEventListener('click', event => {
+        const productId = event.currentTarget.dataset.productId;
+        const product = arr.find(item => item._id === productId);
+        if (product) {
+          handleCartButtonClick(product, arr);
+        } else {
+          console.error('Product not found by ID:', productId);
+        }
+      });
+    });
+  }, 0);
+
+  setCartButtonEventListeners(arr);
+  return markup;
 }
 
-fetchData();
+function setCartButtonEventListeners(arr) {
+  document.querySelectorAll('.cart-btn-list').forEach(button => {
+    button.addEventListener('click', event => {
+      const productId = event.currentTarget.dataset.productId;
+      handleCartButtonClick(productId, arr);
+    });
+  });
+}
+
+function updateCartButtonIcons() {
+  const cart = getCart();
+  document.querySelectorAll('.cart-btn-list').forEach(button => {
+    const productId = button.dataset.productId;
+    const productInCart = cart.find(item => item._id === productId);
+
+    if (productInCart) {
+      button.innerHTML = `
+        <svg class="list-cart-svg-list" width="18" height="18">
+          <use href="${icons}#icon-check"></use>
+        </svg>
+      `;
+    } else {
+      button.innerHTML = `
+        <svg class="list-cart-svg-list" width="18" height="18">
+          <use href="${icons}#icon-white-basket"></use>
+        </svg>
+      `;
+    }
+  });
+}
+
+function getCart() {
+  const savedCart = localStorage.getItem('shoppingCart');
+  return savedCart ? JSON.parse(savedCart) : [];
+}
+
+export { createMarkup, setCartButtonEventListeners, updateCartButtonIcons };
 
 // Opening modal window -------------------------------------
 
@@ -74,8 +105,35 @@ selectedCard.addEventListener('click', handleClickOpen);
 
 function handleClickOpen(event) {
   event.preventDefault();
-  console.log(event);
-  showProductCard('640c2dd963a319ea671e383b');
+
+  if (event.target.nodeName !== 'LI') {
+    return;
+  }
+  // console.log(event.target);
+  showProductCard(item._id);
 }
 
 // showProductCard('640c2dd963a319ea671e383b');
+
+// -------------------------------------------------------
+
+// Scroll Up
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById('myBtn').style.display = 'block';
+  } else {
+    document.getElementById('myBtn').style.display = 'none';
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
