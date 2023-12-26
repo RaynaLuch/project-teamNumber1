@@ -92,9 +92,9 @@ const breakpointWidth = 768;
 
 function updateImage() {
   if (window.innerWidth <= breakpointWidth) {
-    dynamicImage.src = '../img/rectangle-mobile.png';
+    dynamicImage.src = 'https://github.com/RaynaLuch/project-teamNumber1/blob/main/src/img/rectangle-mobile.png?raw=true';
   } else {
-    dynamicImage.src = '../img/rectangle.png';
+    dynamicImage.src = 'https://github.com/RaynaLuch/project-teamNumber1/blob/main/src/img/rectangle.png?raw=true';
   }
 }
 
