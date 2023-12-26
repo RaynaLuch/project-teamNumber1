@@ -1,4 +1,4 @@
-import"./assets/header-4f7e130c.js";const l=document.querySelector(".product-list"),i=document.querySelector(".sub-container"),p=document.querySelector(".delete-btn"),o=document.querySelector(".count"),m=document.querySelector(".amount");function d(){let e,t=localStorage.getItem("basket");return t?e=JSON.parse(t):e=[],e}const g=`<div class="empty">
+import"./assets/header-52e23210.js";const l=document.querySelector(".product-list"),i=document.querySelector(".sub-container"),p=document.querySelector(".delete-btn"),o=document.querySelector(".count"),m=document.querySelector(".amount");function d(){let e,t=localStorage.getItem("basket");return t?e=JSON.parse(t):e=[],e}const g=`<div class="empty">
 <img src="/img/yellow shopping basket.png" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
