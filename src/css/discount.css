@@ -1,5 +1,9 @@
-
+.dis-container {
+  padding-top: 40px;
+}
+ 
  .dis-product-card {
+  position: relative;
   font-family: var(--main-font);
   margin-top: 20px;
   padding: 16px;
@@ -14,6 +18,15 @@
   transition: transform 0.3s var(--transition-cub);
 }
 
+.discount-icon {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+
+}
+
 @media (min-width: 768px) and (max-width: 1439px) {
     .discount-list {
     display: flex;
@@ -24,8 +37,8 @@
     flex-basis: calc((100% - 32px) / 2);
     margin-bottom: 0;
   }
-  .dis-product-card {
-  margin-bottom: 100px;
+  .carts-discount {
+  /* margin-bottom: 100px; */
 }
 }
 
