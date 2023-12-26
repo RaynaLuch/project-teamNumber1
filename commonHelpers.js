@@ -58,7 +58,7 @@ import{s as B}from"./assets/header-16e8538e.js";import{a as f,P as W}from"./asse
       </div>
       <div class="product-preview__description">
         <p class="product-preview__category"><span class="product-preview__sub-heading">Category:</span> ${t.category}</p>
-        <p><span class="product-preview__sub-heading">Size: ${t.size}</span></p>
+        <p><span class="product-preview__sub-heading">Size:</span> ${t.size}</p>
         <p><span class="product-preview__sub-heading">Popularity:</span> ${t.popularity}</p>
       </div>
     </div>
