@@ -1,0 +1,117 @@
+.dis-container {
+  padding-top: 40px;
+}
+.discount-title {
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 1.11;
+}
+ 
+ .dis-product-card {
+  position: relative;
+  font-family: var(--main-font);
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 15px;
+  background-color: var(--light-color);
+
+  box-shadow: 0px 9.1px 16.534px 0px rgba(0, 0, 0, 0.02),
+    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
+    0px 105.3px 124.678px 0px rgba(0, 0, 0, 0.05),
+    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
+
+  transition: transform 0.3s var(--transition-cub);
+}
+
+.discount-icon {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+
+}
+
+/* .dis-product-card:last-child {
+  margin-bottom: 140px;
+} */
+
+.dis-product-card:hover {
+  transform: scale(1.05);
+}
+
+.dis-product-img {
+  background: var(--backgrownd-color);
+  padding: 18px 95px;
+  border-radius: 10px;
+}
+
+.dis-card-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 21px;
+  padding-bottom: 11px;
+
+}
+
+
+.dis-card-name {
+    color: var(--third-dark-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+    text-align: center;
+    /* padding-right: 158px; */
+}
+
+.price-btn-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.product-price-list {
+    color: var(--third-dark-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+.discount-title {
+font-size: 28px;
+line-height: 1.14;
+}
+
+.product-price-list {
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.dis-card-name {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+ .discount-list {
+    display: flex;
+    gap: 32px;
+}
+  
+
+  .dis-product-card {
+    flex-basis: calc((100% - 32px) / 2);
+    margin-bottom: 0;
+  }
+  .carts-discount {
+  /* margin-bottom: 100px; */
+}
+}
+
+@media (max-width: 375px) {
+  .dis-product-card:last-child {
+  margin-bottom: 80px;
+}
+}
+
