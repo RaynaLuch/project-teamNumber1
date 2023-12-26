@@ -1,43 +1,24 @@
 const list = document.querySelector(".product-list")
 const sub = document.querySelector(".sub-container")
+const deleteBtn = document.querySelector(".delete-btn")
+const count = document.querySelector(".count")
+const totalPriceAmount = document.querySelector(".amount")
 
+// function getItems() {
+//   const item = localStorage.getItem('basket');
+//   const parsedItems = JSON.parse(item);
+//   return parsedItems
+// }
 
-const items = [{
-  img: "https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e383b.png",
-  productName: "Ackee",
-  category: 'Fresh_Produce',
-  size: '16 oz',
-  price: 8.99,
-},
-{img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3860.png',
-  productName: 'Allspice',
-  category: 'Pantry_Item',
-  size: '1.5oz',
-  price: 2.99,
-},
-{img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3861.png',
-  productName: 'Almond Extract',
-  category: 'Pantry_Items',
-  size: '2oz',
-  price: 4.99,
-},
-{
-  img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e385e.png',
-productName: 'Ancho Chillies',
-category: 'Pantry_Items',
-size: '100g',
-price: 4.99,}
-]
-    
-function localS() {
-  localStorage.setItem('basket', JSON.stringify(items));
-}
-localS();
-
-function getItems() {
-  const item = localStorage.getItem('basket');
-  const parsedItems = JSON.parse(item);
-  return parsedItems
+function getCart() {
+  let shoppingCart;
+  let shoppingCartStr = localStorage.getItem("basket");
+  if (!shoppingCartStr) {
+    shoppingCart = [];
+  } else {
+    shoppingCart = JSON.parse(shoppingCartStr);
+  }
+  return shoppingCart;
 }
 
 const emptyBasket = `<div class="empty">
@@ -49,34 +30,45 @@ const emptyBasket = `<div class="empty">
 function createPage() {
 const products = localStorage.getItem("basket")
 const parsedProducts = JSON.parse(products)
-console.log(parsedProducts);
+
+// totalPrice(parsedProducts)
   if (parsedProducts !== null) {
-    list.insertAdjacentHTML('beforeend', createImageMarkup(getItems()));
+    const numCount = parsedProducts.length
+    list.insertAdjacentHTML('beforeend', createImageMarkup(getCart()));
+    count.textContent = numCount;
+    totalPriceAmount.textContent = totalPrice(parsedProducts);
     return
     } 
+      count.textContent = 0;
       sub.innerHTML = emptyBasket;
-    
-  
-  
 }
 
 createPage();
 
+// DELETE-ALL BTN FUNCTION
+
+deleteBtn.addEventListener("click",removeAllProducts)
+
+function removeAllProducts() {
+  localStorage.removeItem("basket");
+  createPage()
+}
+
+// CART COUNTER FUNCTION
 
 
-
-// EMPTY MARKUP function
-
-
-
-
+function totalPrice(array) {
+  let amm = 0;
+  array.map((({ price }) => amm += price))
+  return amm;
+}
 
 // MARKUP function
 function createImageMarkup(array) {
   return array
     .map(
-      ({ img, productName, category, size, price }) => `
-      <li class="product-cart">
+      ({ id, img, name, category, size, price }) => `
+      <li class="product-cart" data-id="${id}">
       <img
         class="product-picture"
         src="${img}"
@@ -85,7 +77,7 @@ function createImageMarkup(array) {
       alt="avocado"
       />
       <div class="">
-        <p class="product-name">${productName}</p>
+        <p class="product-name">${name}</p>
 
         <div class="product-descr">
           <p>Category: <span class="qwe">${category}</span></p>
@@ -106,17 +98,37 @@ function createImageMarkup(array) {
 }
 
 
+/**
+  |============================
+  | 
+  |============================
+*/
 
-// function getLocalStorage() {
-//   const products = localStorage.getItem("basket")
-//   const parsedProducts = JSON.parse(products)
-//   console.log(parsedProducts);
-//   if (parsedProducts === null) {
-//     console.log("hi");
-//   }
+// list.addEventListener('click', deleteProduct) 
+
+// function deleteProduct(event) {
+//   const arrayP = getCart();
+//   console.log(arrayP);
+//   const currentProduct = event.target.closest(".product-cart")
+//   const id = currentProduct.dataset.id;
+//   removeProduct(id)
   
 // }
 
-// getLocalStorage()
+// function removeProduct(id) {
+//   let shoppingCart = getCart();
+//   shoppingCart = shoppingCart.filter(p => p._id !== id);
+//   localStorage.setItem('basket', JSON.stringify(shoppingCart));
+// }
 
 
+// function deleteProduct(event) {
+//   const arrayP = getCart();
+//   console.log(arrayP);
+//   const currentProduct = event.target.closest(".product-cart")
+//   const id = currentProduct.dataset.id;
+//   console.log(id);
+//   const delProduct = arrayP.find(({ id: productId}) => productId === id)
+
+//   console.log(delProduct);
+// }
