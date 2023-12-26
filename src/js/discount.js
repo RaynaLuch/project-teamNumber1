@@ -8,6 +8,7 @@ fetchDiscountProducts();
  
 async function fetchDiscountProducts() {
   const { data } = await axios.get("https://food-boutique.b.goit.study/api/products/discount");
+    console.log(data);
 
   // const firstItem = data[Math.floor(Math.random() * data.length)];
 
@@ -26,7 +27,6 @@ createDiscountMarkup();
 async function createDiscountMarkup() {
     const data = await fetchDiscountProducts();
   const markup = data.map(({ img, is10PercentOff, price, name, _id }) => {
-    
       const editedName = name.split("").slice(0, 11).join("") + "...";
       
     return (`<li data-id="${_id}"class="dis-product-card"><img class="dis-product-img" src="${img}" alt="${name}"/><div class="dis-card-description"><p class="dis-card-name">${name.split("").length > 11 ? editedName: name}</p><div class="price-btn-list">
