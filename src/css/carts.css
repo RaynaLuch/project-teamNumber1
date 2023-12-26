@@ -15,17 +15,41 @@
   font-size: 12px;
   line-height: 1.16;
   color: var(--third-dark-color);
+  margin-bottom: 80px;
 }
 
 @media (min-width: 768px) {
-  .products-container ul {
-    display: flex;
-    /* flex-wrap: wrap;
-    gap: 32px; */
+  .carts {
+    margin-bottom: 100px;
   }
 }
 
-.product-card {
+@media (min-width: 1440px) {
+  .carts-all-products {
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.card-container-list {
+  padding: 40px 0; /* Узгодити */
+}
+
+@media (min-width: 768px) {
+  .card-container-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card-container-list {
+    gap: 40px 20px;
+  }
+}
+
+.photo-card-list {
   font-family: var(--main-font);
   margin-bottom: 20px;
   padding: 20px;
@@ -41,37 +65,45 @@
 }
 
 @media (min-width: 768px) {
-  .product-card {
+  .photo-card-list {
     flex-basis: calc((100% - 32px) / 2);
-    /* margin-bottom: 0; */
+    margin-bottom: 0;
   }
 }
 
-.product-card:first-child {
-  margin-top: 20px;
+@media (min-width: 1440px) {
+  .photo-card-list {
+    flex-basis: calc((100% - 40px) / 3);
+  }
 }
 
-.product-card:hover {
+.photo-card-list:hover {
   transform: scale(1.05);
 }
 
-.product-img {
+.img-container-list {
   background: var(--backgrownd-color);
   margin-bottom: 20px;
   padding: 19px 78px;
   border-radius: 10px;
 }
 
-.product-description {
+@media (min-width: 1440px) {
+  .img-container-list {
+    padding: 19px 58px;
+  }
+}
+
+.product-atributes-list {
   display: flex;
   gap: 8px;
 }
 
-.product-description span {
+.atributes-list {
   color: rgba(1, 1, 1, 0.3);
 }
 
-.product-info h3 {
+.product-name-list {
   color: var(--third-dark-color);
   font-size: 18px;
   font-weight: 500;
@@ -79,27 +111,33 @@
   margin-bottom: 10px;
 }
 
-.product-info p {
+@media (min-width: 768px) {
+  .product-name-list {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.atributes-info-list {
   font-size: 12px;
   margin-bottom: 40px;
   line-height: 1.17;
 }
 
-.product-forsale {
+.price-and-btn-list {
   display: flex;
-  /* gap: 215px; */
   justify-content: space-between;
   align-items: end;
 }
 
-.product-info .product-price {
+.product-price-list {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
   margin-bottom: 0;
 }
 
-.carts-svg-box {
+.cart-btn-list {
   background-color: var(--primary-dark-color);
   border-radius: 30px;
   border-color: transparent;
@@ -109,7 +147,7 @@
   align-items: center;
   transition: background-color 0.3s var(--transition-cub);
 }
-.carts-svg-box:hover {
+.cart-btn-list:hover {
   background-color: var(--secondary-dark-color);
 }
 
