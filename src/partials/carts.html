@@ -2,13 +2,17 @@
   <div class="container">
     <h2 class="carts-visually-hidden">Choose products</h2>
     <load ="./filters.html" />
-    <div class="carts-left">
-      <div class="products-container"></div>
-      <div class="carts-pagination"></div>
-    </div>
-    <div class="carts-right">
-      <div class="carts-popular"></div>
-      <div class="carts-discount"></div>
+    <div class="carts-all-products">
+      <div class="carts-left">
+        <div id="products-container" class="products-container"></div>
+        <div id="tui-pagination-container" class="tui-pagination"></div>
+      </div>
+      <div class="carts-right">
+        <div class="carts-popular"></div>
+        <div class="carts-discount"></div>
+      </div>
     </div>
   </div>
 </section>
+<!-- Scroll up -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>

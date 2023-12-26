@@ -1,42 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filters</title>
-    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"></link>
-    <link rel="stylesheet" href="./css/filters.css" />
-  </head>
-  <body>
-    <div id="containerFilter">
-      <p class="filterText">Filters:</p>
-      <div class="filterContainerNavigation">
-        <div class="filterInputAndBtn">
-          <input
-            class="filtersInput"
-            name="serch"
-            placeholder="Search for anything"
-          />
-          <button class="filtersBtn" type="submit">
-            <svg class="icon-baseline-search" width="20" height="20">
-              <use href="../img/sprite.svg#icon-baseline-search"></use>
-            </svg>
-          </button>
-        </div>
-        <select class="filters-select">
-          <option disabled selected hidden>Categories</option>
-        </select>
-        <!-- <select class="filtersSecondSelect">
-          <option>A to Z</option>
-          <option>Z to A</option>
-          <option>Cheap</option>
-          <option>Expensive</option>
-          <option>Popular</option>
-          <option>Not popular</option>
-          <option>Show all</option>
-        </select> -->
-      </div>
+
+<div id="containerFilter">
+  <p class="filterText">Filters:</p>
+  <div class="filterContainerNavigation">
+    <div class="filterInputAndBtn">
+      <input
+        class="filtersInput"
+        name="serch"
+        placeholder="Search for anything"
+      />
+      <button class="filtersBtn" type="submit">
+        <svg class="icon-baseline-search" width="20" height="20">
+          <use href="../img/sprite.svg#icon-baseline-search"></use>
+        </svg>
+      </button>
+
     </div>
-    <script type="module" src="./js/filters.js"></script>
-  </body>
-</html>
+    <select class="filters-select">
+      <option disabled selected hidden>Categories</option>
+    </select>
+  </div>
+</div>
+<!-- <script type="module" src="./js/filters.js"></script> -->
