@@ -53,6 +53,7 @@
   display: flex;
   justify-content: space-between;
   align-items: end;
+
 }
 
 
@@ -63,7 +64,7 @@
     line-height: 1.11;
     /* padding-right: 158px; */
 }
-.dis-card-price {
+.product-price-list {
     color: var(--third-dark-color);
     font-size: 18px;
     font-weight: 500;

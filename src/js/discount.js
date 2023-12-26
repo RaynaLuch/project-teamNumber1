@@ -22,11 +22,14 @@ async function fetchDiscountProducts() {
 createDiscountMarkup();
 async function createDiscountMarkup() {
     const data = await fetchDiscountProducts();
-    const markup = data.map(({ img, is10PercentOff, price, name }) => `<li class="dis-product-card"><img class="dis-product-img" src="${img}" alt="${name}"/><div class="dis-card-description"><p class="dis-card-name">${name}</p><p class="dis-card-price">$${price}</p><div class="carts-svg-box">
-              <svg width="18" height="18">
-                <use href="./img/sprite.svg#icon-white-basket"></use>
-              </svg>
-            </div></div></li>`).join('');
+  const markup = data.map(({ img, is10PercentOff, price, name }) => `<li class="dis-product-card"><img class="dis-product-img" src="${img}" alt="${name}"/><div class="dis-card-description"><p class="dis-card-name">${name}</p><div class="price-btn-list">
+          <p class="product-price-list">$${price}</p>
+          <button class="cart-btn-list" type="button" data-product-id="${item._id}">
+            <svg class="list-cart-svg-list" width="18" height="18">
+              <use href="${icons}#icon-white-basket"></use>
+            </svg>
+          </button>
+        </div></div></div></li>`).join('');
     
     const container = document.createElement('div');
     container.classList.add("dis-container");
