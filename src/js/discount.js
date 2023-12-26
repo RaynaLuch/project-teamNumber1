@@ -5,11 +5,17 @@ const discount = document.querySelector(".carts-discount");
 fetchDiscountProducts();
  
 async function fetchDiscountProducts() {
-    const { data } = await axios.get("https://food-boutique.b.goit.study/api/products/discount");
+  const { data } = await axios.get("https://food-boutique.b.goit.study/api/products/discount");
+
+  const firstItem = data[Math.floor(Math.random() * data.length)];
+
+  const secondItem = data[Math.floor(Math.random() * data.length)];
+  const result = [firstItem, secondItem];
+    console.log(result);
 
 //     const result = data.sort((a, b) => b.popularity - a.popularity).slice(0, 2);
   //  return result;
-  const result = data.sort(() => Math.random() - 0.5).slice(0, 2);
+  // const result = data.sort(() => Math.random() - 0.5).slice(0, 2);
     return result;
 }
      
