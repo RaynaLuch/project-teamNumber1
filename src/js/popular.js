@@ -1,6 +1,7 @@
 import axios from 'axios';
 import showProductCard from './modal';
 import { addProduct, findProductInCart, removeProduct } from './manage-cart';
+import icons from '../img/sprite.svg';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products/popular';
 const popularContainer = document.querySelector('.carts-popular');
@@ -40,7 +41,7 @@ function createImageCard(product) {
   button.className = 'product-preview__cart-btn';
   button.innerHTML = `
     <svg>
-      <use href="./img/sprite.svg#${inCart ? 'icon-check' : 'icon-cart'}">
+      <use href="${icons}#${inCart ? 'icon-check' : 'icon-cart'}">
       </use>
     </svg>`;
   card.innerHTML = `
