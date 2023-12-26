@@ -7,6 +7,7 @@ const BASE_URL = 'https://food-boutique.b.goit.study/api/products/popular';
 const popularContainer = document.querySelector('.carts-popular');
 
 const popularTitle = document.createElement('h2');
+popularTitle.classList.add('popular-product-title');
 popularTitle.textContent = 'Popular products';
 popularContainer.appendChild(popularTitle);
 

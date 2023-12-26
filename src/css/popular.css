@@ -1,11 +1,17 @@
 .popular-product-list {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 14px;
   margin-top: 20px;
 }
-
+.popular-product-title {
+  font-family: Neue Montreal;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.14;
+}
 .product-preview {
   flex-grow: 0;
   width: 100%;
