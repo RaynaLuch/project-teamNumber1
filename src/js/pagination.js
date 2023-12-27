@@ -1,7 +1,11 @@
 import axios from 'axios';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { createMarkup, setCartButtonEventListeners, updateCartButtonIcons } from './carts.js';
+import {
+  createMarkup,
+  setCartButtonEventListeners,
+  updateCartButtonIcons,
+} from './carts.js';
 
 const productsListContainer = document.getElementById('products-container');
 let pagination;
@@ -17,18 +21,20 @@ function getProducts(page, limit) {
 }
 
 function getFilters() {
-    const savedFilters = localStorage.getItem('productFilters');
-    return savedFilters ? JSON.parse(savedFilters) : { keyword: null, category: null, page: 1, limit: 6 };
+  const savedFilters = localStorage.getItem('productFilters');
+  return savedFilters
+    ? JSON.parse(savedFilters)
+    : { keyword: null, category: null, page: 1, limit: 6 };
 }
 
 function saveFilters(filters) {
-    localStorage.setItem('productFilters', JSON.stringify(filters));
+  localStorage.setItem('productFilters', JSON.stringify(filters));
 }
 
 function updateFilter(key, value) {
-    const filters = getFilters();
-    filters[key] = value;
-    saveFilters(filters);
+  const filters = getFilters();
+  filters[key] = value;
+  saveFilters(filters);
 }
 
 window.addEventListener('resize', updatePageSize);
@@ -78,7 +84,10 @@ async function renderProducts() {
         const currentPage = event.page;
         const currentFilters = getFilters();
         const newLimit = currentFilters.limit || 6;
-        if (currentPage !== currentFilters.page || newLimit !== currentFilters.limit) {
+        if (
+          currentPage !== currentFilters.page ||
+          newLimit !== currentFilters.limit
+        ) {
           updateFilter('page', currentPage);
           updateFilter('limit', newLimit);
           renderProducts();

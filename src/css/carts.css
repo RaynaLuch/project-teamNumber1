@@ -15,12 +15,23 @@
   font-size: 12px;
   line-height: 1.16;
   color: var(--third-dark-color);
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
 }
 
 @media (min-width: 768px) {
   .carts {
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
+  }
+}
+
+.carts-all-products {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .carts-all-products {
+    padding-bottom: 100px;
   }
 }
 
@@ -28,21 +39,49 @@
   .carts-all-products {
     display: flex;
     gap: 40px;
+    padding: 60px 0;
   }
 }
 
 .carts-left {
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
 }
 
 @media (min-width: 768px) {
   .carts-left {
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
+  }
+}
+
+@media (min-width: 1440px) {
+  .carts-left {
+    max-width: 925px;
+  }
+
+  .carts-right {
+    max-width: 275px;
+  }
+}
+
+.products-container {
+  margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .products-container {
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .products-container {
+    margin-bottom: 40px;
   }
 }
 
 .card-container-list {
-  padding: 40px 0; /* Узгодити */
+  /* margin-bottom: 40px; */
+  /*padding: 40px 0;  Узгодити */
 }
 
 @media (min-width: 768px) {
@@ -50,12 +89,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
+    margin-bottom: 50px;
   }
 }
 
 @media (min-width: 1440px) {
   .card-container-list {
     gap: 40px 20px;
+    margin-bottom: 40px;
   }
 }
 
@@ -106,7 +147,9 @@
 
 .product-atributes-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+  padding-bottom: 40px;
 }
 
 .atributes-list {
@@ -130,7 +173,7 @@
 
 .atributes-info-list {
   font-size: 12px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   line-height: 1.17;
 }
 
