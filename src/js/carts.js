@@ -65,6 +65,7 @@ function setCartButtonEventListeners(arr) {
 
 function updateCartButtonIcons(id) {
   const button = document.querySelector(`[data-product-id='${id}']`);
+  if (!button) return;
   const productInCart = findProductInCart(id);
 
   if (productInCart) {
