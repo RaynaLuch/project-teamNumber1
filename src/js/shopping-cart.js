@@ -1,5 +1,6 @@
 import { getCart, removeProduct, removeAllProducts} from "./manage-cart"
 import icons from '../img/sprite.svg';
+import image from '../img/yellow-shopping-basket.png'
 
 const list = document.querySelector(".product-list")
 const sub = document.querySelector(".sub-container")
@@ -9,7 +10,7 @@ const totalPriceAmount = document.querySelector(".amount")
 
 
 const emptyBasket = `<div class="empty">
-<img src="emptyBasketPicture" alt="empty basket" class="empty-picture">
+<img src="${image}" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
 </div>`
