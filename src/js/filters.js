@@ -1,11 +1,22 @@
 import axios from 'axios';
 import SlimSelect from 'slim-select';
 import '../../node_modules/slim-select/dist/slimselect.css';
+import {
+  createMarkup,
+  setCartButtonEventListeners,
+  updateCartButtonIcons,
+  setListeners,
+} from './carts.js';
+import { renderProducts } from './pagination.js';
+
+const FILTER_STORAGE = 'productFilters';
 
 const filtersSelect = document.querySelector('.filters-select');
 const filtersInput = document.querySelector('.filtersInput');
 const filtersBtn = document.querySelector('.filtersBtn');
 let ProductsList;
+
+const productsListContainer = document.getElementById('products-container');
 
 //Додаємо початкові значення змінних у локальне сховище
 const filterParams = {
@@ -14,7 +25,18 @@ const filterParams = {
   page: 1,
   limit: 9,
 };
-localStorage.setItem('filterParams', JSON.stringify(filterParams));
+//localStorage.setItem('filterParams', JSON.stringify(filterParams));
+
+function getFilters() {
+  const savedFilters = localStorage.getItem(FILTER_STORAGE);
+  return savedFilters
+    ? JSON.parse(savedFilters)
+    : { keyword: null, category: null, page: 1, limit: 6 };
+}
+
+function saveFilters(filters) {
+  localStorage.setItem(FILTER_STORAGE, JSON.stringify(filters));
+}
 
 //функція запиту на сервер
 async function fetchFoods() {
@@ -53,7 +75,7 @@ async function getProductsListInServer(filterParams) {
       );
     }
 
-    return response.data.results;
+    return response;
   } catch (error) {
     console.log('Помилка на сервері при пошуку продуктів', error);
     throw new Error(error);
@@ -67,9 +89,14 @@ async function fetchData() {
       resolve.map(item => `<option>${item}</option>`).join('') +
       `<option>Show all</option>`;
     filtersSelect.insertAdjacentHTML('beforeend', selectMarkup);
-    new SlimSelect({
+
+    const ss = new SlimSelect({
       select: '.filters-select',
     });
+
+    const curFilters = getFilters();
+    filtersInput.value = curFilters.keyword;
+    ss.setSelected(curFilters.category);
   } catch (error) {
     console.log('Проблема при обработке данных с сервера', error);
   }
@@ -84,25 +111,50 @@ filtersBtn.addEventListener('click', handleBtn);
 //Функція визначення того, що обрав користувач та відправки даних на сервер
 
 export async function handleSelection(event) {
-  filterParams.category = event.currentTarget.value;
-  if (filterParams.category === 'Show all') {
-    filterParams.category = null;
-  } else {
-    localStorage.setItem('filterParams', JSON.stringify(filterParams));
-  }
+  const selectedCategory = event.currentTarget.value;
+  const currentFilters = getFilters();
 
-  ProductsList = await getProductsListInServer(filterParams);
-  console.log(ProductsList);
+  if (selectedCategory === 'Show all') {
+    currentFilters.category = null;
+  } else {
+    currentFilters.category = selectedCategory;
+    //localStorage.setItem('filterParams', JSON.stringify(filterParams));
+  }
+  saveFilters(currentFilters);
+
+  ProductsList = await getProductsListInServer(currentFilters);
+  renderProducts();
+
+  // productsListContainer.innerHTML = createMarkup(ProductsList.data.results);
+  // setCartButtonEventListeners(ProductsList.data.results);
+  // setListeners();
+  console.log(ProductsList.data.results);
 }
 //Функція яка зчинує введені дані користувачем з інпута та зберігає їх у локальне сховище
 export async function handleBtn() {
   const inputInformation = filtersInput.value;
+  const currentFilters = getFilters();
+
   if (!inputInformation.trim()) {
-    filterParams.keyword = null;
+    currentFilters.keyword = null;
   } else {
-    filterParams.keyword = inputInformation;
+    currentFilters.keyword = inputInformation;
   }
-  localStorage.setItem('filterParams', JSON.stringify(filterParams));
-  ProductsList = await getProductsListInServer(filterParams);
-  console.log(ProductsList);
+  //localStorage.setItem('filterParams', JSON.stringify(filterParams));
+  saveFilters(currentFilters);
+  renderProducts();
+  // ProductsList = await getProductsListInServer(currentFilters);
+  // productsListContainer.innerHTML = createMarkup(ProductsList.data.results);
+  // setCartButtonEventListeners(ProductsList.data.results);
+  // setListeners();
+  console.log(ProductsList.data.results);
 }
+
+async function getFilteredProductList() {
+  const curFilters = getFilters();
+  console.log('filters', curFilters);
+  const products = await getProductsListInServer(curFilters);
+  return products;
+}
+
+export { getFilters, saveFilters, getFilteredProductList };
