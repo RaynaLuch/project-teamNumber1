@@ -72,6 +72,9 @@ function setCartButtonEventListeners(arr) {
 function updateCartButtonIcons() {
   const cart = getCart();
   document.querySelectorAll('.cart-btn-list').forEach(button => {
+    // Порада від Вєри. Чи потрібен тут слухач?
+    event.stopPropagation();
+    // ---------------------------------------------------
     const productId = button.dataset.productId;
     const productInCart = cart.find(item => item._id === productId);
 
@@ -94,8 +97,8 @@ function updateCartButtonIcons() {
   const selectedCard = document.querySelectorAll('.photo-card-list');
   selectedCard.forEach(li => {
     li.addEventListener('click', event => {
-      console.log(event.target);
-      console.log(event.currentTarget);
+      event.preventDefault();
+
       if (event.target.nodeName === 'BUTTON') {
       }
       showProductCard(li.dataset.id);
@@ -111,24 +114,25 @@ function getCart() {
 export { createMarkup, setCartButtonEventListeners, updateCartButtonIcons };
 
 // -------------------------------------------------------
-
 // Scroll Up
+const btnTop = document.querySelector('#myBtn');
 
-// When the user scrolls down 20px from the top of the document, show the button
-// window.onscroll = function () {
-//   scrollFunction();
-// };
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    btnTop.style.display = 'block';
+  } else {
+    btnTop.style.display = 'none';
+  }
+  btnTop.addEventListener('click', topFunction);
+}
 
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     document.getElementById('myBtn').style.display = 'block';
-//   } else {
-//     document.getElementById('myBtn').style.display = 'none';
-//   }
-// }
+function topFunction() {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
+}
 
-// // When the user clicks on the button, scroll to the top of the document
-// function topFunction() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// }
+window.onscroll = scrollFunction;
+window.onload = scrollFunction;
