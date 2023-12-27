@@ -1,6 +1,9 @@
 import axios from "axios";
 import icons from '../img/sprite.svg';
 import showProductCard from "./modal";
+import { addProduct, getCart } from "./manage-cart";
+import updatePopularCard from "./updatePopularCard";
+
 
 const discount = document.querySelector(".carts-discount");
 
@@ -25,17 +28,17 @@ createDiscountMarkup();
 
 async function createDiscountMarkup() {
     const data = await fetchDiscountProducts();
-  const markup = data.map(({ img, is10PercentOff, price, name, _id }) => {
-    
-      const editedName = name.split("").slice(0, 11).join("") + "...";
-      
+    const markup = data.map(({ img, is10PercentOff, price, name, _id }) => {
+    const editedName = name.split("").slice(0, 11).join("") + "...";
+      // const cart = getCart();
+      // const isInCart = cart.find((p) => p._id === _id );
+
     return (`<li data-id="${_id}"class="dis-product-card"><img class="dis-product-img" src="${img}" alt="${name}"/><div class="dis-card-description"><p class="dis-card-name">${name.split("").length > 11 ? editedName: name}</p><div class="price-btn-list">
         <p class="product-price-list">$${price}</p>
         <button class="cart-btn-list" type="button" data-product-id="${_id}">
           <svg class="list-cart-svg-list" width="18" height="18">
             <use href="${icons}#icon-white-basket"></use>
-          </svg>
-        </button>
+          </svg></button>
       </div></div></div>${is10PercentOff?`<svg class="discount-icon"><use href="${icons}#icon-discount"></use></svg>`:null}</li>`)}).join('');
   
     
@@ -47,27 +50,39 @@ async function createDiscountMarkup() {
     title.innerText ="Discount products";
 
     const ul = document.createElement('ul');
-    ul.classList.add("discount-list");
+  ul.classList.add("discount-list");
   ul.innerHTML = markup;
   
   container.append(title);
   container.append(ul);
 
-      const svgDiscount = document.createElement('svg');
-
-
-
-
-
-    const listItems = ul.querySelectorAll(".dis-product-card");
+  const listItems = ul.querySelectorAll(".dis-product-card");
   listItems.forEach((li) => {
-    li.addEventListener("click", () => {
-      showProductCard(li.dataset.id)
+    li.addEventListener("click", (e) => {
+        const productId = li.dataset.id;
+      if (e.target.nodeName === "BUTTON" || e.target.nodeName === "use" || e.target.nodeName === "svg") {
+        const product = data.find((item) => item._id === productId);
+        addProduct(product);
+        updateBtn(productId, true);
+      } else {
+        showProductCard(productId);
+      }
 
     })
-   })
-  
-    discount.append(container); 
-     
-}
+  });
 
+    discount.append(container);  
+}
+export function updateBtn(id, isInCart) {
+  const cardEl = discount.querySelector(`[data-id="${id}"]`);
+  if (!cardEl) {
+    return;
+  }
+  const buttonEl = cardEl.children[1].children[1].children[1];
+
+  buttonEl.children[0].children[0].setAttribute(
+    'href',
+    `${icons}#${isInCart ? 'icon-check' : 'icon-white-basket'}`
+  );
+  
+}

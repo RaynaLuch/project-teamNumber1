@@ -42,6 +42,7 @@ function removeProduct(id) {
   setNumItems();
   try {
     updatePopularCard(id, false);
+
   } catch (error) {}
 }
 

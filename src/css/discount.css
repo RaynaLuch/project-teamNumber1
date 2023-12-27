@@ -1,5 +1,5 @@
 .dis-container {
-  padding-top: 40px;
+  padding-top: 64px;
 }
 .discount-title {
 font-size: 24px;
@@ -52,7 +52,7 @@ line-height: 1.11;
   justify-content: space-between;
   align-items: center;
   padding-top: 21px;
-  padding-bottom: 11px;
+  padding-bottom: 21px;
 
 }
 
@@ -84,15 +84,12 @@ font-size: 28px;
 line-height: 1.14;
 }
 
-.product-price-list {
+.product-price-list,
+.dis-card-name {
     font-size: 20px;
     line-height: 1.2;
 }
 
-.dis-card-name {
-  font-size: 20px;
-  line-height: 1.2;
-}
 
  .discount-list {
     display: flex;
@@ -104,14 +101,35 @@ line-height: 1.14;
     flex-basis: calc((100% - 32px) / 2);
     margin-bottom: 0;
   }
-  .carts-discount {
-  /* margin-bottom: 100px; */
-}
+
 }
 
 @media (max-width: 375px) {
   .dis-product-card:last-child {
   margin-bottom: 80px;
+}
+}
+@media (min-width: 1440px)  {
+.discount-title {
+font-size: 28px;
+line-height: 1.14;
+}
+
+.discount-list {
+  max-width: 275px;
+  }
+.dis-product-card {
+   height: 232px;
+}
+.dis-product-img {
+  padding: 23px 69px;
+}
+.dis-container {
+  padding-top: 40px;
+}
+.dis-card-name {
+    font-size: 20px;
+    line-height: 1.2;
 }
 }
 
