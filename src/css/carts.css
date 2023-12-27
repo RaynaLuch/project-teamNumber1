@@ -31,6 +31,16 @@
   }
 }
 
+.carts-left {
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .carts-left {
+    padding-bottom: 100px;
+  }
+}
+
 .card-container-list {
   padding: 40px 0; /* Узгодити */
 }
