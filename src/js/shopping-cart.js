@@ -1,4 +1,5 @@
 import { getCart, removeProduct, removeAllProducts} from "./manage-cart"
+import icons from '../img/sprite.svg';
 
 const list = document.querySelector(".product-list")
 const sub = document.querySelector(".sub-container")
@@ -8,7 +9,7 @@ const totalPriceAmount = document.querySelector(".amount")
 
 
 const emptyBasket = `<div class="empty">
-<img src="/src/img/yellow-shopping-basket.png" alt="empty basket" class="empty-picture">
+<img src="emptyBasketPicture" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
 </div>`
@@ -83,7 +84,7 @@ function createImageMarkup(array) {
       </div>
       <button class="cart-btn" type="button">
         <svg class="">
-          <use href="/src/img/sprite.svg#icon-cross"></use>
+          <use href="${icons}#icon-cross"></use>
         </svg>
       </button>
     </li>
