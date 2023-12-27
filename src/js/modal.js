@@ -27,6 +27,7 @@ export default async function showProductCard(id) {
     console.log(response);
     modalImgField.src = response.data.img;
     modalNameField.textContent = response.data.name;
+    modalImgField.alt = modalNameField.textContent;
     modalCategoryField.textContent = response.data.category;
     modalSizeField.textContent = response.data.size;
     modalPopularityField.textContent = response.data.popularity;
@@ -64,6 +65,16 @@ export default async function showProductCard(id) {
       closeModalBtn.removeEventListener('click', closeModalHandler);
       toggleModal();
     }
+
+    document.addEventListener('keyup', keyPressHandler);
+    function keyPressHandler(e) {
+      if (e.keyCode === 27) {
+        toggleModal();
+        modalCartBtn.removeEventListener('click', addProductHandler);
+        modalCartBtn.removeEventListener('click', removeProductHandler);
+        document.removeEventListener('keyup', keyPressHandler);
+      }
+    }
   } catch (error) {
     console.log(error);
   }
@@ -73,7 +84,7 @@ const closeModalBtnShCart = document.querySelector(
 );
 const modalShCart = document.querySelector('[data-modal-shopping-cart]');
 
-closeModalBtnShCart.addEventListener('click', toggleModalShCart);
+closeModalBtnShCart?.addEventListener('click', toggleModalShCart);
 
 function toggleModalShCart() {
   modalShCart.classList.toggle('is-hidden');
@@ -81,3 +92,11 @@ function toggleModalShCart() {
 
 const orderModalBtn = document.querySelector('.order-btn');
 orderModalBtn?.addEventListener('click', () => toggleModalShCart());
+
+modalShCart?.addEventListener('keypress', keyPressHandlerShCart);
+function keyPressHandlerShCart(e) {
+  if (e.keyCode === 27) {
+    toggleModalShCart();
+    modalShCart?.removeEventListener('keypress', keyPressHandlerShCart);
+  }
+}
