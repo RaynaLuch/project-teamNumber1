@@ -19,7 +19,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  width: 335px;
+  max-width: 335px;
+  min-width: 325px;
   height: 535px;
   background-color: var(--light-color);
   border-radius: 20px;
@@ -59,7 +60,8 @@
 }
 
 .modal-img {
-  padding: 26px 67px 26px 68px;
+  padding: 26px 0 26px 0;
+  margin: 0 auto;
   /* width: 160px;
   height: 160px; */
 }
@@ -96,7 +98,7 @@
   line-height: 18px;
   padding-top: 11px;
   overflow: auto;
-  height: 150px;
+  height: 100px;
 }
 
 .modal-price-button {
@@ -183,7 +185,8 @@
   }
 
   .modal {
-    width: 600px;
+    max-width: 600px;
+    min-width: 600px;
     height: 380px;
     padding: 40px;
   }
@@ -194,10 +197,6 @@
     min-width: 240px;
     height: 212px;
     margin-right: 24px;
-  }
-
-  .modal-img {
-    padding: 26px 40px;
   }
 
   .modal-shopping-cart {
@@ -215,5 +214,8 @@
   .modal-shopping-cart-text {
     font-size: 18px;
     line-height: 24px;
+  }
+  .modal-description {
+    height: 150px;
   }
 }

@@ -63,6 +63,7 @@ export default async function showProductCard(id) {
       modalCartBtn.removeEventListener('click', addProductHandler);
       modalCartBtn.removeEventListener('click', removeProductHandler);
       closeModalBtn.removeEventListener('click', closeModalHandler);
+      document.removeEventListener('keyup', keyPressHandler);
       toggleModal();
     }
 
@@ -73,6 +74,7 @@ export default async function showProductCard(id) {
         modalCartBtn.removeEventListener('click', addProductHandler);
         modalCartBtn.removeEventListener('click', removeProductHandler);
         document.removeEventListener('keyup', keyPressHandler);
+        closeModalBtn.removeEventListener('click', closeModalHandler);
       }
     }
   } catch (error) {
