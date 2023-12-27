@@ -18,12 +18,6 @@
   /* margin-bottom: 80px; */
 }
 
-@media (min-width: 768px) {
-  .carts {
-    /* margin-bottom: 100px; */
-  }
-}
-
 .carts-all-products {
   padding-top: 40px;
   padding-bottom: 80px;
@@ -55,7 +49,7 @@
 
 @media (min-width: 1440px) {
   .carts-left {
-    max-width: 925px;
+    width: 925px;
     padding-bottom: 0;
   }
 
@@ -78,11 +72,6 @@
   .products-container {
     margin-bottom: 40px;
   }
-}
-
-.card-container-list {
-  /* margin-bottom: 40px; */
-  /*padding: 40px 0;  Узгодити */
 }
 
 @media (min-width: 768px) {
@@ -180,7 +169,6 @@
 
 .atributes-info-list {
   font-size: 12px;
-  /* margin-bottom: 40px; */
   line-height: 1.17;
 }
 
