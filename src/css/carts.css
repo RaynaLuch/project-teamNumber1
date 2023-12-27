@@ -153,6 +153,12 @@
   padding-bottom: 40px;
 }
 
+@media (min-width: 1440px) {
+  .product-atributes-list {
+    padding-bottom: 20px;
+  }
+}
+
 .atributes-list {
   color: rgba(1, 1, 1, 0.3);
 }
