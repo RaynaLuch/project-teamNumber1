@@ -1,5 +1,5 @@
 import showProductCard from './modal';
-import { addProduct } from './manage-cart';
+import { addProduct, findProductInCart, removeProduct } from './manage-cart';
 import icons from '../img/sprite.svg';
 
 function createMarkup(arr) {
@@ -42,76 +42,63 @@ function createMarkup(arr) {
     })
     .join('')}</ul>`;
 
-  setTimeout(() => {
-    document.querySelectorAll('.cart-btn-list').forEach(button => {
-      button.addEventListener('click', event => {
-        const productId = event.currentTarget.dataset.productId;
-        const product = arr.find(item => item._id === productId);
-        if (product) {
-          handleCartButtonClick(product, arr);
-        } else {
-          console.error('Product not found by ID:', productId);
-        }
-      });
-    });
-  }, 0);
-
-  setCartButtonEventListeners(arr);
   return markup;
 }
 
 function setCartButtonEventListeners(arr) {
   document.querySelectorAll('.cart-btn-list').forEach(button => {
     button.addEventListener('click', event => {
+      event.stopPropagation();
       const productId = event.currentTarget.dataset.productId;
-      handleCartButtonClick(productId, arr);
+      const product = arr.find(p => p._id === productId);
+      const isInCart = findProductInCart(productId);
+      if (isInCart) {
+        removeProduct(productId);
+        updateCartButtonIcons(productId);
+      } else {
+        addProduct(product);
+        updateCartButtonIcons(productId);
+      }
     });
   });
 }
 
-function updateCartButtonIcons() {
-  const cart = getCart();
-  document.querySelectorAll('.cart-btn-list').forEach(button => {
-    // Порада від Вєри. Чи потрібен тут слухач?
-    event.stopPropagation();
-    // ---------------------------------------------------
-    const productId = button.dataset.productId;
-    const productInCart = cart.find(item => item._id === productId);
+function updateCartButtonIcons(id) {
+  const button = document.querySelector(`[data-product-id='${id}']`);
+  const productInCart = findProductInCart(id);
 
-    if (productInCart) {
-      button.innerHTML = `
+  if (productInCart) {
+    button.innerHTML = `
         <svg class="list-cart-svg-list" width="18" height="18">
           <use href="${icons}#icon-check"></use>
         </svg>
       `;
-    } else {
-      button.innerHTML = `
+  } else {
+    button.innerHTML = `
         <svg class="list-cart-svg-list" width="18" height="18">
           <use href="${icons}#icon-white-basket"></use>
         </svg>
       `;
-    }
-  });
+  }
+}
 
+function setListeners() {
   // Opening modal window -------------------------------------
   const selectedCard = document.querySelectorAll('.photo-card-list');
   selectedCard.forEach(li => {
     li.addEventListener('click', event => {
       event.preventDefault();
-
-      if (event.target.nodeName === 'BUTTON') {
-      }
       showProductCard(li.dataset.id);
     });
   });
 }
 
-function getCart() {
-  const savedCart = localStorage.getItem('shoppingCart');
-  return savedCart ? JSON.parse(savedCart) : [];
-}
-
-export { createMarkup, setCartButtonEventListeners, updateCartButtonIcons };
+export {
+  createMarkup,
+  setCartButtonEventListeners,
+  updateCartButtonIcons,
+  setListeners,
+};
 
 // -------------------------------------------------------
 // Scroll Up
