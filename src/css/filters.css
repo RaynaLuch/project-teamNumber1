@@ -91,6 +91,7 @@
 .filters-select:hover {
   border-color: var(--primary-dark-color) !important;
 }
+
 @media (min-width: 768px) {
   .filters-select {
     width: 189px !important;
