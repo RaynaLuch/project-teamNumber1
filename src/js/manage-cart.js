@@ -1,12 +1,6 @@
 import { setNumItems } from './header.js';
 import updatePopularCard from './updatePopularCard.js';
-export {
-  addProduct,
-  findProductInCart,
-  removeProduct,
-  removeAllProducts,
-  getCart,
-};
+
 const STORAGE = 'basket';
 
 function addProduct(product) {
@@ -42,7 +36,6 @@ function removeProduct(id) {
   setNumItems();
   try {
     updatePopularCard(id, false);
-
   } catch (error) {}
 }
 
@@ -50,3 +43,11 @@ function removeAllProducts() {
   localStorage.removeItem(STORAGE);
   setNumItems();
 }
+
+export {
+  addProduct,
+  findProductInCart,
+  removeProduct,
+  removeAllProducts,
+  getCart,
+};
