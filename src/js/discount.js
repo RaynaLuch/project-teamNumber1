@@ -2,13 +2,13 @@ import axios from "axios";
 import icons from '../img/sprite.svg';
 import showProductCard from "./modal";
 
+
 const discount = document.querySelector(".carts-discount");
 
 fetchDiscountProducts();
  
 async function fetchDiscountProducts() {
   const { data } = await axios.get("https://food-boutique.b.goit.study/api/products/discount");
-    console.log(data);
 
   // const firstItem = data[Math.floor(Math.random() * data.length)];
 
@@ -34,8 +34,7 @@ async function createDiscountMarkup() {
         <button class="cart-btn-list" type="button" data-product-id="${_id}">
           <svg class="list-cart-svg-list" width="18" height="18">
             <use href="${icons}#icon-white-basket"></use>
-          </svg>
-        </button>
+          </svg></button>
       </div></div></div>${is10PercentOff?`<svg class="discount-icon"><use href="${icons}#icon-discount"></use></svg>`:null}</li>`)}).join('');
   
     
@@ -53,13 +52,10 @@ async function createDiscountMarkup() {
   container.append(title);
   container.append(ul);
 
-      const svgDiscount = document.createElement('svg');
+  const svgDiscount = document.createElement('svg');
 
 
-
-
-
-    const listItems = ul.querySelectorAll(".dis-product-card");
+  const listItems = ul.querySelectorAll(".dis-product-card");
   listItems.forEach((li) => {
     li.addEventListener("click", () => {
       showProductCard(li.dataset.id)

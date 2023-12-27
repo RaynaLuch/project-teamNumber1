@@ -1,5 +1,5 @@
 .dis-container {
-  padding-top: 40px;
+  padding-top: 64px;
 }
 .discount-title {
 font-size: 24px;
@@ -84,15 +84,12 @@ font-size: 28px;
 line-height: 1.14;
 }
 
-.product-price-list {
+.product-price-list,
+.dis-card-name {
     font-size: 20px;
     line-height: 1.2;
 }
 
-.dis-card-name {
-  font-size: 20px;
-  line-height: 1.2;
-}
 
  .discount-list {
     display: flex;
