@@ -1,4 +1,4 @@
-import{r as l,b as u,g as p,i as m}from"./assets/manage-cart-9a2a8fe0.js";const n=document.querySelector(".product-list"),g=document.querySelector(".sub-container"),y=document.querySelector(".delete-btn"),a=document.querySelector(".count"),v=document.querySelector(".amount"),b=`<div class="empty">
+import{r as l,b as u,g as p,i as m}from"./assets/manage-cart-2135e1f9.js";const n=document.querySelector(".product-list"),g=document.querySelector(".sub-container"),y=document.querySelector(".delete-btn"),a=document.querySelector(".count"),v=document.querySelector(".amount"),b=`<div class="empty">
 <img src="emptyBasketPicture" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
