@@ -5,6 +5,7 @@ import {
   createMarkup,
   setCartButtonEventListeners,
   updateCartButtonIcons,
+  setListeners,
 } from './carts.js';
 
 const productsListContainer = document.getElementById('products-container');
@@ -68,6 +69,7 @@ async function renderProducts() {
 
     productsListContainer.innerHTML = createMarkup(results);
     setCartButtonEventListeners(results);
+    setListeners();
 
     const container = document.getElementById('tui-pagination-container');
 
