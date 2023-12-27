@@ -428,8 +428,7 @@
 }
 
 .order-input:hover,
-.order-input:focus, {
-  
+.order-input:focus{
 border: 1px solid #6D8434;
 }
 
