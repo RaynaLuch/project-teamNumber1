@@ -45,13 +45,13 @@ line-height: 1.11;
   background: var(--backgrownd-color);
   padding: 18px 95px;
   border-radius: 10px;
+  margin-bottom: 16px;
 }
 
 .dis-card-description {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 21px;
   padding-bottom: 21px;
 
 }
