@@ -1,4 +1,4 @@
-import{r as i,b as u,g as p,i as m}from"./assets/manage-cart-e95928d0.js";const g="/project-teamNumber1/assets/yellow-shopping-basket-88cc64a6.png",n=document.querySelector(".product-list"),y=document.querySelector(".sub-container"),b=document.querySelector(".delete-btn"),a=document.querySelector(".count"),h=document.querySelector(".amount"),v=`<div class="empty">
+import{r as i,b as u,g as p,i as m}from"./assets/manage-cart-97e16179.js";const g="/project-teamNumber1/assets/yellow-shopping-basket-88cc64a6.png",n=document.querySelector(".product-list"),y=document.querySelector(".sub-container"),b=document.querySelector(".delete-btn"),a=document.querySelector(".count"),h=document.querySelector(".amount"),v=`<div class="empty">
 <img src="${g}" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
