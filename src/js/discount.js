@@ -7,7 +7,6 @@ import updatePopularCard from "./updatePopularCard";
 
 const discount = document.querySelector(".carts-discount");
 
-fetchDiscountProducts();
  
 async function fetchDiscountProducts() {
   const { data } = await axios.get("https://food-boutique.b.goit.study/api/products/discount");
