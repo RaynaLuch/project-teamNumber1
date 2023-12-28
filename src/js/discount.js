@@ -1,7 +1,7 @@
 import axios from "axios";
 import icons from '../img/sprite.svg';
 import showProductCard from "./modal";
-import { addProduct, getCart } from "./manage-cart";
+import { addProduct, getCart, findProductInCart } from "./manage-cart";
 import updatePopularCard from "./updatePopularCard";
 
 
@@ -27,7 +27,8 @@ createDiscountMarkup();
 
 async function createDiscountMarkup() {
     const data = await fetchDiscountProducts();
-    const markup = data.map(({ img, is10PercentOff, price, name, _id }) => {
+  const markup = data.map(({ img, is10PercentOff, price, name, _id }) => {
+    const prodInBasket = findProductInCart(_id);
     const editedName = name.split("").slice(0, 11).join("") + "...";
       // const cart = getCart();
       // const isInCart = cart.find((p) => p._id === _id );
@@ -36,7 +37,9 @@ async function createDiscountMarkup() {
         <p class="product-price-list">$${price}</p>
         <button class="dis-btn-list" type="button" data-product-id="${_id}">
           <svg class="list-cart-svg-list" width="18" height="18">
-            <use href="${icons}#icon-white-basket"></use>
+            <use href="${icons}#${
+        prodInBasket ? 'icon-check' : 'icon-white-basket'
+      }"></use>
           </svg></button>
       </div></div></div>${is10PercentOff?`<svg class="discount-icon"><use href="${icons}#icon-discount"></use></svg>`:null}</li>`)}).join('');
   
