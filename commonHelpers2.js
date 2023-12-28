@@ -1,9 +1,9 @@
-import{r as m,b as u,g as d,t as g,i as h}from"./assets/modal-efc3036a.js";import{a as y}from"./assets/vendor-cb0d5946.js";const b="/project-teamNumber1/assets/yellow-shopping-basket-88cc64a6.png",r=document.querySelector(".product-list"),f=document.querySelector(".sub-container"),v=document.querySelector(".delete-btn"),a=document.querySelector(".count"),S=document.querySelector(".change"),P=document.querySelector(".order-form"),k="https://food-boutique.b.goit.study/api/orders",q=`<div class="empty">
-<img src="${b}" alt="empty basket" class="empty-picture">
+import{r as m,b as d,g as i,t as g,i as f}from"./assets/modal-6107ca41.js";import{a as b}from"./assets/vendor-cb0d5946.js";const y="/project-teamNumber1/assets/yellow-shopping-basket-88cc64a6.png",r=document.querySelector(".product-list"),h=document.querySelector(".sub-container"),v=document.querySelector(".delete-btn"),u=document.querySelector(".count"),P=document.querySelector(".change"),S=document.querySelector(".order-form"),k="https://food-boutique.b.goit.study/api/orders",q=`<div class="empty">
+<img src="${y}" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
-</div>`;function n(){const e=localStorage.getItem("basket"),t=JSON.parse(e);if(t!==null){const o=t.length;r.insertAdjacentHTML("beforeend",L(d())),a.textContent=o,S.textContent=x(t);return}a.textContent=0,f.innerHTML=q}n();r.addEventListener("click",$);function $(e){r.innerHTML="";const o=e.target.closest(".product-cart").dataset.id;m(o);const s=localStorage.getItem("basket"),c=JSON.parse(s);console.log(c.length),c.length===0&&u(),n()}v.addEventListener("click",i);function i(){u(),n()}function x(e){let t=0;return e.map(({price:o})=>t+=o),t.toFixed(2)}function L(e){return e.map(({_id:t,img:o,name:s,category:c,size:l,price:p})=>`
-      <li class="product-cart" data-id="${t}">
+</div>`;function a(){const t=localStorage.getItem("basket"),e=JSON.parse(t);if(e!==null){const o=e.length;r.insertAdjacentHTML("beforeend",L(i())),u.textContent=o,P.textContent=x(e);return}u.textContent=0,h.innerHTML=q}a();r.addEventListener("click",$);function $(t){if(t.target!==t.currentTarget){const e=t.target.closest(".cart-btn"),s=t.target.closest(".product-cart").dataset.id;if(e!==null){r.innerHTML="",m(s);const c=localStorage.getItem("basket");JSON.parse(c).length===0&&d(),a()}}}v.addEventListener("click",l);function l(){d(),a()}function x(t){let e=0;return t.map(({price:o})=>e+=o),e.toFixed(2)}function L(t){return t.map(({_id:e,img:o,name:s,category:c,size:n,price:p})=>`
+      <li class="product-cart" data-id="${e}">
       <img
         class="product-picture"
         src="${o}"
@@ -16,16 +16,16 @@ import{r as m,b as u,g as d,t as g,i as h}from"./assets/modal-efc3036a.js";impor
 
         <div class="product-descr">
           <p>Category: <span class="qwe">${c}</span></p>
-          <p>Size: <span class="qwe">${l}</span></p>
+          <p>Size: <span class="qwe">${n}</span></p>
         </div>
 
         <p class="product-price">$${p}</p>
       </div>
       <button class="cart-btn" type="button">
-        <svg class="">
-          <use href="${h}#icon-cross"></use>
+        <svg class="cross-icon">
+          <use href="${f}#icon-cross"></use>
         </svg>
       </button>
     </li>
-    `).join("")}P.addEventListener("submit",C);function C(e){e.preventDefault();const t=d(),o=B(t);y.post(k,{email:e.target.elements.email.value,products:o}).then(s=>{s.status===201&&(i(),g())}).catch(s=>console.log(s.message))}function B(e){return e.map(t=>({productId:t._id,amount:1}))}
+    `).join("")}S.addEventListener("submit",C);function C(t){t.preventDefault();const e=i(),o=B(e);b.post(k,{email:t.target.elements.email.value,products:o}).then(s=>{s.status===201&&(l(),g())}).catch(s=>console.log(s.message))}function B(t){return t.map(e=>({productId:e._id,amount:1}))}
 //# sourceMappingURL=commonHelpers2.js.map
