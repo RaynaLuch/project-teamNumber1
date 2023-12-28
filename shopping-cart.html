@@ -13,8 +13,10 @@
     />
     
     <script type="module" crossorigin src="/project-teamNumber1/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-teamNumber1/assets/manage-cart-52b4aebc.js">
-    <link rel="stylesheet" href="/project-teamNumber1/assets/manage-cart-76635feb.css">
+    <link rel="modulepreload" crossorigin href="/project-teamNumber1/assets/vendor-cb0d5946.js">
+    <link rel="modulepreload" crossorigin href="/project-teamNumber1/assets/modal-9c7f7af8.js">
+    <link rel="stylesheet" href="/project-teamNumber1/assets/vendor-a9424048.css">
+    <link rel="stylesheet" href="/project-teamNumber1/assets/modal-4ee165f4.css">
   </head>
   <body>
     
@@ -81,7 +83,8 @@
             <h2 class="order-text">YOUR ORDER</h2>
             <div class="total-price">
               <p class="total-text">Total</p>
-              <p class="sum-text">Sum: <span class="amount">0,00</span></p>
+              <p class="sum-text">Sum:</p>
+              <p class="amount">$<span class="change">0,00</span></p>
             </div>
             <form class="order-form">
               <input
@@ -101,13 +104,13 @@
       </div>
     </div>
 
-    <!-- <footer>
+    <footer>
   <div class="footer-top-div">
     <div>
       <div class="footer-logo-div">
         <a href="./index.html" class="footer-logo-link">
           <svg width="32" height="32" class="footer-icon-svg">
-            <use href="./img/sprite.svg#icon-green-logo"></use>
+            <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-green-logo"></use>
           </svg>
           Food Boutique
         </a>
@@ -124,7 +127,7 @@
             height="40"
             class="footer-icon-social footer-facebook"
           >
-            <use href="./img/sprite.svg#icon-facebook"></use>
+            <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-facebook"></use>
           </svg>
         </a>
 
@@ -138,7 +141,7 @@
             height="40"
             class="footer-icon-social footer-instagram"
           >
-            <use href="./img/sprite.svg#icon-instagram"></use>
+            <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-instagram"></use>
           </svg>
         </a>
 
@@ -148,7 +151,7 @@
           target="_blank"
         >
           <svg width="40" height="40" class="footer-icon-social footer-youtube">
-            <use href="./img/sprite.svg#icon-youtube"></use>
+            <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-youtube"></use>
           </svg>
         </a>
       </div>
@@ -184,7 +187,7 @@
     <div class="footer-modal-w wrong-email-footer">
       <button class="footer-modal-w-close footer-close-email-margin">
         <svg width="28" height="28">
-          <use href="./img/sprite.svg#icon-cross"></use>
+          <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-cross"></use>
         </svg>
       </button>
       <div class="footer-modal-w-text-content">
@@ -201,7 +204,7 @@
     <div class="footer-modal-w footer-modal-w-failure">
       <button class="footer-modal-w-close footer-close-failure-margin">
         <svg width="28" height="28">
-          <use href="./img/sprite.svg#icon-cross"></use>
+          <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-cross"></use>
         </svg>
       </button>
       <div class="footer-modal-w-text-content">
@@ -218,7 +221,7 @@
     <div class="footer-modal-w footer-modal-w-success">
       <button class="footer-modal-w-close footer-close-success-margin">
         <svg width="28" height="28">
-          <use href="./img/sprite.svg#icon-cross"></use>
+          <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-cross"></use>
         </svg>
       </button>
       <div class="footer-modal-w-text-content">
@@ -240,7 +243,78 @@
     </div>
   </section>
 </footer>
- -->
+
+    <div class="is-hidden modal-window" data-modal>
+  <div class="modal">
+    <button data-modal-close class="modal-button" type="button">
+      <svg class="modal-close">
+        <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-cross"></use>
+      </svg>
+    </button>
+    <div class="modal-flex">
+      <div class="modal-img-desk">
+        <div class="modal-img-div">
+          <img class="modal-img" id="modal-img" src="#" alt="#" />
+        </div>
+        <div>
+          <p class="modal-title" id="modal-name">Name</p>
+          <span class="modal-label">Category:</span>
+          <span class="modal-value" id="modal-category">Fresh Produce</span>
+          <span class="modal-label">Size:</span
+          ><span class="modal-value" id="modal-size">1 medium-sized</span>
+          <span class="modal-label">Popularity:</span>
+          <span class="modal-value" id="modal-popularity">0</span>
+          <p class="modal-description" id="modal-desc">
+            A round, orange vegetable with a thick shell and seeds inside. It is
+            often used in cooking and baking for its sweet and earthy flavor.
+          </p>
+        </div>
+      </div>
+      <div class="modal-price-button">
+        <p class="modal-price" id="modal-price">$0.00</p>
+        <button class="modal-cart-button" type="button">
+          Add to
+          <svg width="18" height="18" class="modal-button-img">
+            <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-white-basket"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="is-hidden modal-window" data-modal-shopping-cart>
+  <div class="modal-shopping-cart">
+    <button data-modal-close-shopping-cart class="modal-button" type="button">
+      <svg class="modal-close">
+        <use href="/project-teamNumber1/assets/sprite-851c6254.svg#icon-cross"></use>
+      </svg>
+    </button>
+    <div>
+      <picture>
+        <source
+          srcset="/project-teamNumber1/assets/tomato-2e7c8a14.png 1x, /project-teamNumber1/assets/tomato@2x-e50564d7.png 2x"
+          type="image/jpeg"
+        />
+        <img
+          class="modal-img-shopping-cart"
+          src="/project-teamNumber1/assets/tomato-2e7c8a14.png"
+          alt="tomato"
+          width="145"
+          height="140"
+        />
+      </picture>
+      <p class="modal-shopping-cart-title">Order success</p>
+      <p class="modal-shopping-cart-text">
+        Thank you for shopping at Food Boutique. Your order has been received
+        and is now being freshly prepared just for you! Get ready to indulge in
+        nourishing goodness, delivered right to your doorstep. We're thrilled to
+        be part of your journey to better health and happiness.
+      </p>
+    </div>
+  </div>
+</div>
+
     
   </body>
 </html>
