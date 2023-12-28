@@ -64,7 +64,6 @@
   .filterInputAndBtn {
     width: 320px;
     height: 52px;
-    min-width: none;
   }
 }
 .filtersBtn {
