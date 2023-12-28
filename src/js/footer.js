@@ -3,6 +3,7 @@ import axios from 'axios';
 const userEmailsArray =
   JSON.parse(localStorage.getItem('userEmailsArray')) || [];
 
+const body = document.querySelector('body');
 const form = document.querySelector('.footer-form');
 const modalEmailFooter = document.querySelector('.wrong-email-footer');
 const modalSendsuccess = document.querySelector('.footer-modal-w-success');
@@ -27,6 +28,7 @@ const isValidEmail = email => {
 
 sendBtnFooter.addEventListener('click', function (event) {
   event.preventDefault();
+  document.body.classList.add("modal-open");
 
   const userEmail = emailInputFooter.value;
   if (!isValidEmail(userEmail)) {
@@ -48,7 +50,7 @@ const addUserEmail = () => {
     modalSection.classList.add('modal-subscribing-footer');
   } else {
     userEmailsArray.push(userEmail);
-    console.log('Users who have already subscribed:', userEmailsArray);
+    // console.log('Users who have already subscribed:', userEmailsArray);
 
     localStorage.setItem('userEmailsArray', JSON.stringify(userEmailsArray));
   }
@@ -75,15 +77,18 @@ const createOrder = async () => {
 closeBtnFailureFooter.addEventListener('click', function (event) {
   modalSection.classList.remove('modal-subscribing-footer');
   modalSendfailure.classList.remove('visibility');
+  document.body.classList.remove("modal-open");
 });
 closeBtnEmailFooter.addEventListener('click', function (event) {
   modalSection.classList.remove('modal-subscribing-footer');
   modalEmailFooter.classList.remove('visibility');
+  document.body.classList.remove("modal-open");
 });
 
 closeBtnSuccessFooter.addEventListener('click', function (event) {
   modalSection.classList.remove('modal-subscribing-footer');
   modalSendsuccess.classList.remove('visibility');
+  document.body.classList.remove("modal-open");
 });
 
 const dynamicImage = document.querySelector('.footer-modal-w-img');

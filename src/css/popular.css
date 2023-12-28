@@ -32,7 +32,7 @@
 }
 
 .product-preview__image-container {
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   border-radius: 10px;
   height: 100%;
   padding: 9px;
@@ -85,7 +85,7 @@
   align-items: center;
   border: none;
   width: 20px;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   border-radius: 50%;
   background: var(--backgrownd-color);
   margin-left: auto;
