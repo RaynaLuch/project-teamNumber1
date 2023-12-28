@@ -3,14 +3,19 @@ footer {
   width: 100%;
   padding: 40px 100px 20px 100px;
   border-radius: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .footer-top-div {
   display: flex;
   justify-content: space-between;
+  column-gap: 149px;
 }
 .footer-bottom {
   display: flex;
   justify-content: space-between;
+  column-gap: 833px;
 }
 .footer-icon-social {
   border-radius: 10px;
@@ -241,12 +246,23 @@ footer input::placeholder {
 @media (min-width: 768px) and (max-width: 1439px) {
   footer {
     padding: 40px 32px 20px 32px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .central-and-form-divs {
     display: flex;
     flex-direction: column;
     row-gap: 64px;
+  }
+
+  .footer-top-div {
+    column-gap: 78px;
+  }
+
+  .footer-bottom {
+    column-gap: 297px;
   }
 }
 
