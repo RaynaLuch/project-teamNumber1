@@ -149,13 +149,14 @@ body.modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  width: 335px;
+  width: 335px; 
   height: 428px;
-  background-color: var(--light-color);
+  background-color: var(--backgrownd-color);
   border-radius: 20px;
   transition: transform 250ms var(--transition-cub);
   padding: 40px 20px 60px 20px;
 }
+
 
 .modal-img-shopping-cart {
   margin: 0 auto;
