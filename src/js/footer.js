@@ -48,7 +48,7 @@ const addUserEmail = () => {
     modalSection.classList.add('modal-subscribing-footer');
   } else {
     userEmailsArray.push(userEmail);
-    console.log('Users who have already subscribed:', userEmailsArray);
+    // console.log('Users who have already subscribed:', userEmailsArray);
 
     localStorage.setItem('userEmailsArray', JSON.stringify(userEmailsArray));
   }

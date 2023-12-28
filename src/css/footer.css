@@ -253,9 +253,9 @@ footer input::placeholder {
 @media (min-width: 375px) and (max-width: 767px) {
   footer {
     padding: 40px 20px 20px 20px;
-        align-items: center;
-          display: flex;
-          flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .central-and-form-divs {
@@ -354,6 +354,14 @@ footer input::placeholder {
 
   .footer-modal-w-img {
     margin-top: 22px;
+  }
+  .wrong-email-footer,
+  .footer-modal-w-failure {
+    width: 335px;
+  }
+  .footer-close-failure-margin,
+  .footer-close-email-margin {
+    margin-left: 299px;
   }
 }
 
