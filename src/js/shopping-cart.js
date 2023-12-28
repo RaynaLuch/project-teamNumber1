@@ -37,18 +37,22 @@ createPage();
 list.addEventListener('click', deleteProduct) 
 
 function deleteProduct(event) {
-  list.innerHTML = "";
-  const currentProduct = event.target.closest(".product-cart")
-  const id = currentProduct.dataset.id;
-  removeProduct(id)
-  const products = localStorage.getItem("basket")
-  const parsedProducts = JSON.parse(products)
-  console.log(parsedProducts.length);
-  if (parsedProducts.length === 0) {
-    removeAllProducts()
-}
-  createPage()
-}
+  if (event.target !== event.currentTarget) {
+    const currentProduct = event.target.closest(".cart-btn")
+    const currentProducto = event.target.closest(".product-cart")
+    const id = currentProducto.dataset.id;
+      if (currentProduct !== null) {
+        list.innerHTML = "";
+        removeProduct(id)
+        const products = localStorage.getItem("basket")
+        const parsedProducts = JSON.parse(products)
+        if (parsedProducts.length === 0) {
+              removeAllProducts()
+       }
+       createPage()
+    }
+  }
+ }
 
 deleteBtn.addEventListener("click",removeProducts)
 
@@ -87,7 +91,7 @@ function createImageMarkup(array) {
         <p class="product-price">$${price}</p>
       </div>
       <button class="cart-btn" type="button">
-        <svg class="">
+        <svg class="cross-icon">
           <use href="${icons}#icon-cross"></use>
         </svg>
       </button>
