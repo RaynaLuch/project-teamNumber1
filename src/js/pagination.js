@@ -7,12 +7,15 @@ import {
   updateCartButtonIcons,
   setListeners,
 } from './carts.js';
+import { getFilters, saveFilters, getFilteredProductList } from './filters.js';
 
 const productsListContainer = document.getElementById('products-container');
 let pagination;
 let visiblePages = window.innerWidth < 768 ? 2 : 4;
 
 function getProducts(page, limit) {
+  return getFilteredProductList();
+
   return axios.get('https://food-boutique.b.goit.study/api/products', {
     params: {
       page: page,
@@ -21,6 +24,7 @@ function getProducts(page, limit) {
   });
 }
 
+/*
 function getFilters() {
   const savedFilters = localStorage.getItem('productFilters');
   return savedFilters
@@ -31,6 +35,7 @@ function getFilters() {
 function saveFilters(filters) {
   localStorage.setItem('productFilters', JSON.stringify(filters));
 }
+*/
 
 function updateFilter(key, value) {
   const filters = getFilters();
@@ -107,3 +112,5 @@ async function renderProducts() {
 }
 
 renderProducts();
+
+export { renderProducts };
