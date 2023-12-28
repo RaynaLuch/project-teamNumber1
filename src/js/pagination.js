@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import {
@@ -15,27 +14,7 @@ let visiblePages = window.innerWidth < 768 ? 2 : 4;
 
 function getProducts(page, limit) {
   return getFilteredProductList();
-
-  return axios.get('https://food-boutique.b.goit.study/api/products', {
-    params: {
-      page: page,
-      limit: limit,
-    },
-  });
 }
-
-/*
-function getFilters() {
-  const savedFilters = localStorage.getItem('productFilters');
-  return savedFilters
-    ? JSON.parse(savedFilters)
-    : { keyword: null, category: null, page: 1, limit: 6 };
-}
-
-function saveFilters(filters) {
-  localStorage.setItem('productFilters', JSON.stringify(filters));
-}
-*/
 
 function updateFilter(key, value) {
   const filters = getFilters();
@@ -78,34 +57,38 @@ async function renderProducts() {
 
     const container = document.getElementById('tui-pagination-container');
 
-    if (!pagination) {
-      pagination = new Pagination(container, {
-        totalItems: totalItems,
-        itemsPerPage: limit,
-        visiblePages: visiblePages,
-        centerAlign: true,
-        page: page,
-      });
+    if (totalPages > 1) {
+      if (!pagination) {
+        pagination = new Pagination(container, {
+          totalItems: totalItems,
+          itemsPerPage: limit,
+          visiblePages: visiblePages,
+          centerAlign: true,
+          page: page,
+        });
 
-      pagination.on('beforeMove', event => {
-        const currentPage = event.page;
-        const currentFilters = getFilters();
-        const newLimit = currentFilters.limit || 6;
-        if (
-          currentPage !== currentFilters.page ||
-          newLimit !== currentFilters.limit
-        ) {
-          updateFilter('page', currentPage);
-          updateFilter('limit', newLimit);
-          renderProducts();
-        }
-      });
+        pagination.on('beforeMove', event => {
+          const currentPage = event.page;
+          const currentFilters = getFilters();
+          const newLimit = currentFilters.limit || 6;
+          if (
+            currentPage !== currentFilters.page ||
+            newLimit !== currentFilters.limit
+          ) {
+            updateFilter('page', currentPage);
+            updateFilter('limit', newLimit);
+            renderProducts();
+          }
+        });
+      } else {
+        pagination.reset(totalItems);
+        pagination.movePageTo(page);
+      }
+
+      updateCartButtonIcons();
     } else {
-      pagination.reset(totalItems);
-      pagination.movePageTo(page);
+      container.innerHTML = '';
     }
-
-    updateCartButtonIcons();
   } catch (error) {
     console.error('Error fetching products', error);
   }
