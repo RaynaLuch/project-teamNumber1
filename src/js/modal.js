@@ -9,6 +9,8 @@ const modal = document.querySelector('[data-modal]');
 const modalCartBtn = document.querySelector('.modal-cart-button');
 
 function toggleModal() {
+  document.body.classList.toggle('modal-open');
+
   modal.classList.toggle('is-hidden');
 }
 
@@ -90,6 +92,7 @@ const shoppingCartContainer = document.querySelector(
 );
 
 function toggleModalShCart() {
+  document.body.classList.toggle('modal-open');
   modalShCart.classList.toggle('is-hidden');
 }
 
