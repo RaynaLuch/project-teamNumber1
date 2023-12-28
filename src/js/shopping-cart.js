@@ -1,13 +1,16 @@
+import axios from 'axios';
 import { getCart, removeProduct, removeAllProducts} from "./manage-cart"
 import icons from '../img/sprite.svg';
 import image from '../img/yellow-shopping-basket.png'
+import './modal';
 
 const list = document.querySelector(".product-list")
 const sub = document.querySelector(".sub-container")
 const deleteBtn = document.querySelector(".delete-btn")
 const count = document.querySelector(".count")
-const totalPriceAmount = document.querySelector(".amount")
-
+const totalPriceAmount = document.querySelector(".change")
+const orderBtn = document.querySelector(".order-form")
+const BASE_URL = "https://food-boutique.b.goit.study/api/orders";
 
 const emptyBasket = `<div class="empty">
 <img src="${image}" alt="empty basket" class="empty-picture">
@@ -92,4 +95,29 @@ function createImageMarkup(array) {
     `
     )
     .join('');
+}
+
+orderBtn.addEventListener("submit", placeOrder)
+
+function placeOrder(event) {
+  event.preventDefault();
+  const productList = getCart()
+  const productsToBuy = getId(productList)
+  axios.post(BASE_URL, {
+    email: event.target.elements.email.value,
+    products: productsToBuy
+  })
+  .then(res => { 
+    if (res.status === 201) {
+      removeProducts()
+      toggleModalShCart()
+    }})
+  .catch(error => console.log(error.message))
+}
+
+function getId(array) {
+ return array.map(item => ({
+    productId: item._id,
+    amount: 1
+ }))
 }
