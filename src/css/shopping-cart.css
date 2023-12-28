@@ -379,7 +379,7 @@
   margin-bottom: 30px;
 }
 
-@media (min-width: 375) {
+@media (min-width: 375px) {
   .total-price {
     width: 335px;
   }
