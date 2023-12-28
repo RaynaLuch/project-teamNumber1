@@ -11,9 +11,6 @@ export default function updatePopularCard(id, isInCart) {
   } else {
     cardEl.classList.remove('product-preview--in-cart');
   }
-  if (!cardEl) {
-    return;
-  }
   const buttonEl = cardEl.children[1].children[0].children[1];
   buttonEl.children[0].children[0].setAttribute(
     'href',
