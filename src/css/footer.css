@@ -2,7 +2,6 @@ footer {
   background-color: var(--primary-dark-color);
   width: 100%;
   padding: 40px 100px 20px 100px;
-  border-radius: 10px;
   align-items: center;
   display: flex;
   flex-direction: column;
