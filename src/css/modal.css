@@ -8,7 +8,10 @@
   transition: opacity 250ms var(--transition-cub),
     visibility 250ms var(--transition-cub);
 }
-
+body.modal-open {
+  max-height: 100vh;
+  overflow: hidden;
+}
 .is-hidden {
   opacity: 0;
   visibility: hidden;
