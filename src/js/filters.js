@@ -114,7 +114,7 @@ export async function handleSelection(event) {
   const selectedCategory = event.currentTarget.value;
   const currentFilters = getFilters();
 
-  if (selectedCategory === 'Show all') {
+  if (selectedCategory === 'Show all' || selectedCategory === 'Categories') {
     currentFilters.category = null;
   } else {
     currentFilters.category = selectedCategory;
