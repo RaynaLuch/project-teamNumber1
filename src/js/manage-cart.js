@@ -15,7 +15,7 @@ function addProduct(product) {
 
 function findProductInCart(id) {
   const shoppingCart = getCart();
-  return shoppingCart.find(p => p._id === id);
+  return shoppingCart.find(p => p?._id === id);
 }
 
 function getCart() {
