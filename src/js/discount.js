@@ -34,7 +34,7 @@ async function createDiscountMarkup() {
 
     return (`<li data-id="${_id}"class="dis-product-card"><img class="dis-product-img" src="${img}" alt="${name}"/><div class="dis-card-description"><p class="dis-card-name">${name.split("").length > 11 ? editedName: name}</p><div class="price-btn-list">
         <p class="product-price-list">$${price}</p>
-        <button class="cart-btn-list" type="button" data-product-id="${_id}">
+        <button class="dis-btn-list" type="button" data-product-id="${_id}">
           <svg class="list-cart-svg-list" width="18" height="18">
             <use href="${icons}#icon-white-basket"></use>
           </svg></button>

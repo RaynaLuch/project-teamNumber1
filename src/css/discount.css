@@ -77,6 +77,19 @@ line-height: 1.11;
     font-weight: 500;
     line-height: 1.11;
 }
+.dis-btn-list {
+  background-color: var(--primary-dark-color);
+  border-radius: 30px;
+  border-color: transparent;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s var(--transition-cub);
+}
+.dis-btn-list:hover {
+  background-color: var(--secondary-dark-color);
+}
 
 @media (min-width: 768px) and (max-width: 1439px) {
 .discount-title {
