@@ -1,4 +1,4 @@
-import{f as v,i as m,r as T,a as k,s as q}from"./assets/modal-6107ca41.js";import{a as d,S as x,P as G}from"./assets/vendor-cb0d5946.js";function V(t){return`<ul class="card-container-list">${t.map(e=>{const o=v(e._id),i=e.category.split("_").join(" ");return`
+import{f as v,i as m,r as T,a as k,s as q}from"./assets/modal-e6b1d276.js";import{a as d,S as x,P as G}from"./assets/vendor-cb0d5946.js";function V(t){return`<ul class="card-container-list">${t.map(e=>{const o=v(e._id),i=e.category.split("_").join(" ");return`
       <li class="photo-card-list" data-id="${e._id}">
         <a class="product-modal-list" href="#">
           <div class="img-container-list">
