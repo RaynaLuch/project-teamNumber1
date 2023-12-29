@@ -2,6 +2,7 @@ import axios from 'axios';
 import { getCart, removeProduct, removeAllProducts } from './manage-cart';
 import icons from '../img/sprite.svg';
 import image from '../img/yellow-shopping-basket.png';
+import imageRetina from '../img/yellow-shopping-basket@2x.png';
 import { toggleModalShCart } from './modal';
 
 const list = document.querySelector('.product-list');
@@ -13,7 +14,7 @@ const orderBtn = document.querySelector('.order-form');
 const BASE_URL = 'https://food-boutique.b.goit.study/api/orders';
 
 const emptyBasket = `<div class="empty">
-<img src="${image}" alt="empty basket" class="empty-picture">
+<img srcset="${image} 1x, ${imageRetina} 2x" src="${image}" alt="empty basket" class="empty-picture">
 <h2 class="empty-main-text">Your basket is <a href="../index.html" class="empty-link">empty...</a> </h2>
 <p class="empty-sub-text">Go to the main page to select your favorite products and add them to the cart.</p>
 </div>`;
