@@ -26,7 +26,7 @@ export default async function showProductCard(id) {
   let response;
   try {
     response = await axios(BASE_URL + '/products/' + id);
-    console.log(response);
+    //console.log(response);
     modalImgField.src = response.data.img;
     modalNameField.textContent = response.data.name;
     modalImgField.alt = modalNameField.textContent;

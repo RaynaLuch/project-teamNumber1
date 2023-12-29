@@ -80,7 +80,7 @@ async function fetchPopular() {
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const products = await fetchPopular();
-    console.log(products);
+    //console.log(products);
 
     products
       .sort((a, b) => b.popularity - a.popularity)

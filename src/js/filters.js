@@ -128,7 +128,7 @@ export async function handleSelection(event) {
   // productsListContainer.innerHTML = createMarkup(ProductsList.data.results);
   // setCartButtonEventListeners(ProductsList.data.results);
   // setListeners();
-  console.log(ProductsList.data.results);
+  //console.log(ProductsList.data.results);
 }
 //Функція яка зчинує введені дані користувачем з інпута та зберігає їх у локальне сховище
 export async function handleBtn() {
@@ -147,12 +147,12 @@ export async function handleBtn() {
   // productsListContainer.innerHTML = createMarkup(ProductsList.data.results);
   // setCartButtonEventListeners(ProductsList.data.results);
   // setListeners();
-  console.log(ProductsList.data.results);
+  //console.log(ProductsList.data.results);
 }
 
 async function getFilteredProductList() {
   const curFilters = getFilters();
-  console.log('filters', curFilters);
+  //console.log('filters', curFilters);
   const products = await getProductsListInServer(curFilters);
   return products;
 }
